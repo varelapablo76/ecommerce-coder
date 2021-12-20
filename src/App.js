@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import  NavbarStore  from './components/Navbar/Navbar.jsx';
 
 function App() {
   return (
     <div className="App">
+      <NavbarStore />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -16,6 +20,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          Test
         </a>
       </header>
     </div>
