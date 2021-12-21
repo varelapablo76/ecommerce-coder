@@ -1,4 +1,5 @@
 import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap'
+import CartWidget from './CartWidget.jsx'
 import logo from './logoFeikIT.svg'
 
 const NavbarStore = () => {
@@ -9,7 +10,7 @@ const NavbarStore = () => {
     {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav " className="justify-content-between">
-      <Nav className="ms-auto" >
+      <Nav className="ms-auto align-items-center" >
         <Nav.Link href="#home">Ofertas</Nav.Link>
         <Nav.Link href="#link">Mis Compras</Nav.Link>
         <NavDropdown title="Categorías" id="basic-nav-dropdown">
@@ -17,6 +18,7 @@ const NavbarStore = () => {
           <NavDropdown.Item href="#action/3.2">Electrodomésticos</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Construcción</NavDropdown.Item>
         </NavDropdown>
+        <CartWidget />
       </Nav>
     </Navbar.Collapse>
   </Container>
