@@ -1,4 +1,14 @@
-import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap'
+import Navbar from 'react-bootstrap/Navbar'
+
+import Nav from 'react-bootstrap/Nav'
+// import Nav.Link from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+import Container from 'react-bootstrap/Container'
+// import Nav from 'react-bootstrap/Navbar'
+// import NavDropdown from 'react-bootstrap/Navbar'
+// import Container from 'react-bootstrap/Navbar'
+
+
 import CartWidget from './CartWidget.jsx'
 import logo from './logoFeikIT.svg'
 
