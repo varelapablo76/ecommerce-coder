@@ -8,7 +8,7 @@ const ItemCount = ({min, stock}) => {
     };
 
     const downCantidad = () =>{
-        cantidad > 1 ? setCantidad(cantidad-1) : alert('Mínimo de Compra')
+        cantidad > min ? setCantidad(cantidad-1) : alert('Mínimo de Compra')
     }
 
     return (
