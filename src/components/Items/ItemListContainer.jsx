@@ -1,15 +1,14 @@
 import ItemCount from './ItemCount'
+import ItemList from './ItemList'
+
 
 const ItemListContainer = ({logo, grettings}) => {
 
 
     return (
         <>
+        <ItemList />
         <ItemCount min={1} stock={5} />
-        {/* <img src={logo} alt="Logo" className="App-logo"/>
-        <h2>
-            {grettings}
-        </h2> */}
         </>
     )
 }

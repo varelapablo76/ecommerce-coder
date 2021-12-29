@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './components/Navbar/logoFeikIT.svg'
-import ItemListContainer from './components/ItemListContainer'
+import ItemListContainer from './components/Items/ItemListContainer'
 
 import  NavbarStore  from './components/Navbar/Navbar.jsx';
 

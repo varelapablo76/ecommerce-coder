@@ -33,3 +33,27 @@
   fill:rgba(0,0,0,.55);
 
 }
+
+.card__product{
+width: 18rem;
+/* height: 10rem; */
+}
+/* .card__img{
+
+} */
+.card__product--category{
+font-size: 0.5rem;
+color:grey
+}
+.card__product--title{
+  font-size: 2rem;
+  color:black;
+}
+.card__product--price{
+  font-size: 2rem;
+  font-weight: 400;
+}
+.card__product--text{
+  font-size: 1rem;
+  color: grey
+}

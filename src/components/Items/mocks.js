@@ -1,0 +1,41 @@
+import img from './img/remera01.jpg'
+const productos = [
+    {
+        id:1, 
+        producto: 'Nombre_1',
+        categoria: 'Categoria_1',
+        precio: '$1000',
+        descripcion: 'Lorem Ipsum ',
+        img: './img/remera01.jpg'
+    },
+    {
+        id:2,
+        producto: 'Nombre_2',
+        categoria: 'Categoria_2',
+        precio: '$2000',
+        descripcion: 'Lorem Ipsum ',
+        img: '.../img/remera01.png'
+    },        
+    {
+        id:3, 
+        producto: 'Nombre_3',
+        categoria: 'Categoria_3',
+        precio: '$3000',
+        descripcion: 'Lorem Ipsum ',
+        img: '.../img/remera01.png'
+    },
+]
+
+export const descargaProductos = new Promise ((siDescarga, noDescarga) => {
+    let status = true
+    if (status) {
+        setTimeout(() => {
+            siDescarga(productos);
+        }, 2000);
+    }else {
+        noDescarga('Error en proceso')
+    }
+})
+
+
+
