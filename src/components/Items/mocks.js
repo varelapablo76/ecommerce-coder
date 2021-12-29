@@ -1,4 +1,6 @@
-import img from './img/remera01.jpg'
+import img from './img/remera01.png'
+// import dos from './remera01.png'
+
 const productos = [
     {
         id:1, 
@@ -6,7 +8,7 @@ const productos = [
         categoria: 'Categoria_1',
         precio: '$1000',
         descripcion: 'Lorem Ipsum ',
-        img: './img/remera01.jpg'
+        img: img
     },
     {
         id:2,
@@ -14,7 +16,7 @@ const productos = [
         categoria: 'Categoria_2',
         precio: '$2000',
         descripcion: 'Lorem Ipsum ',
-        img: '.../img/remera01.png'
+        img: img
     },        
     {
         id:3, 
@@ -22,7 +24,7 @@ const productos = [
         categoria: 'Categoria_3',
         precio: '$3000',
         descripcion: 'Lorem Ipsum ',
-        img: '.../img/remera01.png'
+        img: img
     },
 ]
 
