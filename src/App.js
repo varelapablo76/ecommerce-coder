@@ -1,16 +1,16 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './components/Navbar/logoFeikIT.svg'
-import ItemListContainer from './components/Items/ItemListContainer'
+// import ItemListContainer from './components/Items/ItemListContainer'
 
 import  NavbarStore  from './components/Navbar/Navbar.jsx';
+import ItemDetailContainer from './components/Items/ItemDetailContainer';
 
 function App() {
   return (
     <div className="App">
       <NavbarStore />
       <header className="App-header">
-        <ItemListContainer logo= {logo} grettings='Comming Soon' />
+        <ItemDetailContainer />
       </header>
     </div>
   );
