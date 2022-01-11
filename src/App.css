@@ -1,5 +1,16 @@
-.App {
+/* font-family: 'Archivo', sans-serif;
+Extra-light 200
+Light 300 italic
+Regular 400
+Bold 700
+*/
+
+/* .App {
   text-align: center;
+} */
+
+h1,h2,h3,a, p {
+  font-family: 'Archivo', sans-serif;
 }
 
 .App-logo {
@@ -57,3 +68,20 @@ color:grey
   font-size: 1rem;
   color: grey
 }
+
+.product__content_title{
+font-weight: 700;
+}
+
+.product__content_price{
+  font-weight: 700;
+  color:blueviolet
+  }
+
+.product__content_detail{
+font-weight: 300;
+font-size: 1.1rem;
+}
+/* .product__content_img{
+  width: 10rem;
+} */

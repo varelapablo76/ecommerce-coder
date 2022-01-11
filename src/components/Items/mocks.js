@@ -7,7 +7,7 @@ const productos = [
         producto: 'Nombre_1',
         categoria: 'Categoria_1',
         precio: '$1000',
-        descripcion: 'Lorem Ipsum ',
+        descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
         img: 'img/remera01.png'
     },
     {
@@ -15,7 +15,7 @@ const productos = [
         producto: 'Nombre_2',
         categoria: 'Categoria_2',
         precio: '$2000',
-        descripcion: 'Lorem Ipsum ',
+        descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
         img: 'img/remera01.png'
     },        
     {
@@ -23,7 +23,7 @@ const productos = [
         producto: 'Nombre_3',
         categoria: 'Categoria_3',
         precio: '$3000',
-        descripcion: 'Lorem Ipsum ',
+        descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
         img: 'img/remera01.png'
     },
 ]

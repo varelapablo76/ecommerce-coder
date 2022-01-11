@@ -1,5 +1,7 @@
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
+import ItemDetailContainer from './ItemDetailContainer'
+
 
 
 const ItemListContainer = ({logo, grettings}) => {
@@ -7,8 +9,9 @@ const ItemListContainer = ({logo, grettings}) => {
 
     return (
         <>
-        <ItemList />
-        <ItemCount min={1} stock={5} />
+        <ItemDetailContainer />
+        {/* <ItemList />
+        <ItemCount min={1} stock={5} /> */}
         </>
     )
 }
