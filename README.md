@@ -21,4 +21,4 @@ Para este proyecto fué utilizado las siguientes dependencias:
 * React Router
 * React Icons
 
-<img src="public/img/showStore.gif" alt="Demo del Store">
+<img src="https://media.giphy.com/media/OPetODaXY0A09VUIcW/giphy.gif" alt="Demo del Store">
