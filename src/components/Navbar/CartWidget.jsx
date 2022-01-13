@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const CartWidget = () => {
 
     return (
-        <Link to="#link">
+        <Link to="/carrito">
             <ImCart className="icon__navbar"/>
         </Link>
     )
