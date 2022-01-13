@@ -22,3 +22,5 @@ Para este proyecto fué utilizado las siguientes dependencias:
 * React Icons
 
 <img src="public/img/showStore.gif" alt="Demo del Store">
+
+<div style="width:100%;height:0;padding-bottom:68%;position:relative;"><iframe src="https://giphy.com/embed/OPetODaXY0A09VUIcW" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/OPetODaXY0A09VUIcW">via GIPHY</a></p>
