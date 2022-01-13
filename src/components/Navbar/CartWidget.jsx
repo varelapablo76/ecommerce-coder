@@ -1,11 +1,12 @@
 import { ImCart } from 'react-icons/im'
+import { Link } from 'react-router-dom'
 
 const CartWidget = () => {
 
     return (
-        <a href="#link">
+        <Link to="#link">
             <ImCart className="icon__navbar"/>
-        </a>
+        </Link>
     )
 }
 

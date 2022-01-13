@@ -1,9 +1,13 @@
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button'
 
+// import ItemCount from './ItemCount'
+
+
 const ItemDetail = (item) => {
     return (
-        <div className="d-flex flex-column flex-md-row justify-content-md-around container">
+        <div className="d-flex flex-column flex-md-row justify-content-md-around container"
+        key={item.idProd}>
         <img className="product__content_img col-12 col-md-5" src={item.img} alt="" />
         <div className="product__content col-12 col-md-6">
           <div className="product__content_info ms-2">
@@ -23,8 +27,9 @@ const ItemDetail = (item) => {
                       <option>Seleccione una Variante</option>
                   </Form.Select>
               </div>
+              {/* <ItemCount min={1} stock={5} /> */}
               <div className="d-flex justify-content-center">
-  
+
               <Button
               className="m-2"
               variant="success">

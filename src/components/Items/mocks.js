@@ -3,28 +3,28 @@
 
 const productos = [
     {
-        id:1, 
-        producto: 'Nombre_1',
-        categoria: 'Categoria_1',
+        idProd:'1', 
+        producto: 'Remera 01',
+        itCategoria: 'remera',
         precio: '$1000',
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
-        img: 'img/remera01.png'
+        img: '/img/remera01.png'
     },
     {
-        id:2,
-        producto: 'Nombre_2',
-        categoria: 'Categoria_2',
+        idProd:'2',
+        producto: 'Remera 02',
+        itCategoria: 'remera',
         precio: '$2000',
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
-        img: 'img/remera01.png'
+        img: '/img/remera01.png'
     },        
     {
-        id:3, 
+        idProd:'3', 
         producto: 'Nombre_3',
-        categoria: 'Categoria_3',
-        precio: '$3000',
+        itCategoria: 'sticker',
+        precio: '$200',
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque vitae beatae ducimus dolor consectetur blanditiis ipsam rerum maxime voluptatibus suscipit, iusto totam? Suscipit deleniti quod, at sed architecto odit iure. ',
-        img: 'img/remera01.png'
+        img: '/img/sticker01.png'
     },
 ]
 
