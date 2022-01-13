@@ -21,4 +21,4 @@ Para este proyecto fué utilizado las siguientes dependencias:
 * React Router
 * React Icons
 
-<iframe src="https://drive.google.com/file/d/1TeNqfqEIg0ARy8aMRuJcddLEtbzJcK-q/preview" width="640" height="480" allow="autoplay"></iframe>
+<img src="public/img/showStore.gif" alt="Demo del Store">
