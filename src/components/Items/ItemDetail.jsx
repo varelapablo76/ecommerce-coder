@@ -1,10 +1,22 @@
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button'
 
-// import ItemCount from './ItemCount'
+
+import ItemCount from './ItemCount'
+import {useState} from 'react'
+import { Link } from "react-router-dom";
+
 
 
 const ItemDetail = (item) => {
+
+  const [comprando, setComprando] = useState(true)
+
+  const onAdd =() =>{
+    setComprando(false)
+  }
+
+
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
         key={item.idProd}>
@@ -17,24 +29,38 @@ const ItemDetail = (item) => {
               {item.descripcion}
             </p>
           </div>
-          <Form>
+          {/* <Form> */}
               <div className="d-flex justify-content-between">
-                  <Form.Control  className="m-2"
-                      type="number"
-                      id="stockProduct"
-                  />
-                  <Form.Select className="m-2">
+                  <ItemCount className="m-2" min={1} stock={5} id='stockProduct' />
+                  <Form.Select className="m-2" id="opcionDisponible">
                       <option>Seleccione una Variante</option>
                   </Form.Select>
               </div>
-              {/* <ItemCount min={1} stock={5} /> */}
-              <div className="d-flex justify-content-center">
+          {/* </Form> */}
+              <div className="d-flex justify-content-center align-items-center">
 
+              {comprando ? 
               <Button
               className="m-2"
-              variant="success">
+              variant="outline-success"
+              onClick={onAdd} > 
                 Agregar al Carrito
-              </Button>
+              </Button> 
+              
+              : 
+
+              <Link to ="/carrito">
+
+                <Button
+              className="m-2 "
+              variant="success">
+                Terminar Compra
+              </Button> 
+              
+              </Link>
+
+              }
+
               <Button
               className="m-2"
               variant="outline-secondary">
@@ -42,7 +68,6 @@ const ItemDetail = (item) => {
               </Button>
   
               </div>
-          </Form>
         </div>
       </div>
     )

@@ -33,7 +33,7 @@ const ItemList = () => {
     console.log(itCategoria)
 
         return (
-            <div className="d-flex flex-column flex-md-row justify-content-around">
+            <div className="d-flex flex-column flex-wrap flex-md-row justify-content-around">
             { loading ? <Spinner animation="grow" /> : 
             prod.map( item => 
                 <div key={item.idProd} 

@@ -75,7 +75,8 @@ font-weight: 700;
 
 .product__content_price{
   font-weight: 700;
-  color:blueviolet
+  color:blueviolet;
+
   }
 
 .product__content_detail{
@@ -85,3 +86,8 @@ font-size: 1.1rem;
 /* .product__content_img{
   width: 10rem;
 } */
+
+.product__content_stock{
+  width: 10rem;
+  height: 2.5rem;
+}

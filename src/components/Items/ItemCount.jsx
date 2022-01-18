@@ -1,9 +1,12 @@
 import { useState } from "react"
+import {AiFillCaretUp, AiFillCaretDown} from 'react-icons/ai'
 
 const ItemCount = ({min, stock}) => {
 
     const [cantidad, setCantidad] = useState(min)
-    const onAdd =() =>{
+
+
+    const upCantidad =() =>{
         cantidad < stock ? setCantidad(cantidad+1) : alert('Stock Insuficiente')
     };
 
@@ -12,15 +15,15 @@ const ItemCount = ({min, stock}) => {
     }
 
     return (
-        <>
-        <h3>{stock[1]}</h3>
-        <p>Cantidad de Productos</p>
-        <h3>{cantidad}</h3>
-        <div>
-            <button onClick={onAdd}>Sumar</button>
-            <button onClick={downCantidad}>Restar</button>
-        </div>
-        </>
+        
+        <button className="product__content_stock d-flex flex-wrap justify-content-around align-items-baseline border border-success rounded ">
+        <AiFillCaretDown onClick={downCantidad} />
+            <p>Cantidad:</p>
+            <p className="product__content_price">{cantidad}</p>
+            <AiFillCaretUp onClick={upCantidad} /> 
+        </button>
+    
+
     )
 }
 

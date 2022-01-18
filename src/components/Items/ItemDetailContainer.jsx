@@ -29,6 +29,7 @@ const ItemDetailContainer = (detail) => {
    <ItemDetail
    key={unit.idProd}
    img={unit.img}
+   opcion={unit.variante}
    category={unit.itCategoria}
    title={unit.producto}
    price={unit.precio}
