@@ -5,17 +5,21 @@ import Button from 'react-bootstrap/Button'
 import ItemCount from './ItemCount'
 import {useState} from 'react'
 import { Link } from "react-router-dom";
-
+import { UsoCarritoContext } from "../../context/cartContext";
 
 
 const ItemDetail = (item) => {
 
+  const {listaCarrito, addCart} = UsoCarritoContext()
+
   const [comprando, setComprando] = useState(true)
 
-  const onAdd =() =>{
+  const onAdd =(cant) =>{
     setComprando(false)
+    addCart( {...item, cantidad: cant} )
   }
 
+console.log(listaCarrito)
 
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
@@ -43,7 +47,7 @@ const ItemDetail = (item) => {
               <Button
               className="m-2"
               variant="outline-success"
-              onClick={onAdd} > 
+              onClick={() => onAdd(1)} > 
                 Agregar al Carrito
               </Button> 
               
