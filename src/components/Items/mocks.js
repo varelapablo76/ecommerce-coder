@@ -64,7 +64,6 @@ const productos = [
         precio: '$1000',
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/sticker02.png',
-        opcion:'Harry Potter',
     },        
     
     

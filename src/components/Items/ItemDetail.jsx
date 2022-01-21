@@ -12,18 +12,22 @@ const ItemDetail = (item) => {
 
   const {listaCarrito, addCart} = UsoCarritoContext()
 
+  console.log(item)
+  
+  
   const [comprando, setComprando] = useState(true)
-
+  
   const onAdd =(cant) =>{
     setComprando(false)
     addCart( {...item, cantidad: cant} )
+
   }
 
 console.log(listaCarrito)
 
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
-        key={item.idProd}>
+        key={item.id}>
         <img className="product__content_img col-12 col-md-5" src={item.img} alt="" />
         <div className="product__content col-12 col-md-6">
           <div className="product__content_info ms-2">

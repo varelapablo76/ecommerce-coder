@@ -16,31 +16,34 @@ import { useState, useContext, createContext } from "react";
     function addCart  (items) {
         // SetListaCarrito ([ ...listaCarrito, items])
 
-        const listaTotal = listaCarrito.findIndex(prod => prod.id === items.id)
+    
+        console.log(items)
 
-        console.log(listaTotal)
+        const index = listaCarrito.findIndex(i => i.id === items.id)
 
-        SetListaCarrito([...listaCarrito, items])
+        // console.log(index + ' <lista Total desde cartContext')
+
+        // SetListaCarrito([...listaCarrito, items])
 
 
-        // console.log(listaTotal + ' <this is listaTotal')
-        // console.log(listaCarrito[listaTotal])
+        console.log(index + ' <this is index')
+        console.log(listaCarrito[index])
 
-        // if (listaTotal > -1) {
+        if (index > -1) {
 
-        //     console.log('Repetido')
+            console.log('Repetido')
 
-        //     const oldListaCarrito=listaCarrito[listaTotal].cantidad
-        //     let newListaCarrito = oldListaCarrito + items.cantidad
-        //     listaCarrito[listaTotal].cantidad = newListaCarrito
+            const oldListaCarrito=listaCarrito[index].cantidad
+            let newListaCarrito = oldListaCarrito + items.cantidad
+            listaCarrito[index].cantidad = newListaCarrito
 
-        //     let pushCarrito = [...listaCarrito]
+            let pushCarrito = [...listaCarrito]
 
-        //     SetListaCarrito(pushCarrito)
+            SetListaCarrito(pushCarrito)
 
-        // } else {
-        //     SetListaCarrito([...listaCarrito, items])
-        // }
+        } else {
+            SetListaCarrito([...listaCarrito, items])
+        }
 
     }
 

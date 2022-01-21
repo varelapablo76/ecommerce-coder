@@ -27,7 +27,7 @@ const ItemDetailContainer = (detail) => {
       <div>
    { loading ? <Spinner animation="grow" /> : 
    <ItemDetail
-   key={unit.idProd}
+   id={unit.idProd}
    img={unit.img}
    opcion={unit.variante}
    category={unit.itCategoria}
