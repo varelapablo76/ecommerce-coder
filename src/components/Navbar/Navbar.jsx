@@ -4,11 +4,20 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
 
 import { Link } from 'react-router-dom'
+import { UsoCarritoContext } from '../../context/cartContext'
 
-import CartWidget from './CartWidget.jsx'
+
+import { ImCart } from 'react-icons/im'
+import Badge from 'react-bootstrap/Badge'
+
 import logo from './logoFeikIT.svg'
 
 const NavbarStore = () => {
+
+  const {itemsTotal}  = UsoCarritoContext()
+
+
+
     return (
 <Navbar bg="light" expand="lg">
   <Container >
@@ -23,7 +32,10 @@ const NavbarStore = () => {
           <NavDropdown.Item as={Link} to="/productos/remera">Remeras</NavDropdown.Item>
           <NavDropdown.Item as={Link} to="/productos/sticker">Stickers</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link as={Link} to="/carrito"><CartWidget/></Nav.Link>
+        <Nav.Link as={Link} to="/carrito">  
+          <ImCart className="icon__navbar"/>
+          <Badge bg="danger" className="m-1">{itemsTotal()}</Badge>    
+        </Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

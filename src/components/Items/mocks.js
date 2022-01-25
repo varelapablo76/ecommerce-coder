@@ -7,7 +7,7 @@ const productos = [
         producto: 'BurgerLift',
         itCategoria: 'remera',
         variant: 'comida',
-        precio: '$1000',
+        precio: 1000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/remera01.png'
     },
@@ -16,7 +16,7 @@ const productos = [
         producto: 'Groot DeadLift',
         itCategoria: 'remera',
         variant: 'pelicula',
-        precio: '$2000',
+        precio: 2000,
         descripcion: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/remera02.png'
     },        
@@ -25,7 +25,7 @@ const productos = [
         producto: 'Big Groot',
         itCategoria: 'remera',
         variant: 'pelicula',
-        precio: '$1000',
+        precio: 1000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/remera03.png'
     },
@@ -34,7 +34,7 @@ const productos = [
         producto: 'IronBell',
         itCategoria: 'remera',
         variant: 'pelicula',
-        precio: '$2000',
+        precio: 2000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/remera04.png'
     },        
@@ -43,7 +43,7 @@ const productos = [
         producto: 'WonderWoman',
         itCategoria: 'remera',
         variant: 'pelicula',
-        precio: '$200',
+        precio: 200,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/remera05.png'
     },
@@ -52,7 +52,7 @@ const productos = [
         producto: 'Ouch!',
         itCategoria: 'sticker',
         variant: 'crossfit',
-        precio: '$1000',
+        precio: 1000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/sticker01.png'
     },
@@ -61,7 +61,7 @@ const productos = [
         producto: 'Harry Potter',
         itCategoria: 'sticker',
         variant: 'pelicula',
-        precio: '$1000',
+        precio: 1000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/sticker02.png',
     },        
@@ -72,7 +72,7 @@ const productos = [
         producto: 'I love PullUps',
         itCategoria: 'sticker',
         variant: 'pelicula',
-        precio: '$2000',
+        precio: 2000,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/sticker05.png'
     },        
@@ -81,7 +81,7 @@ const productos = [
         producto: 'DevilPress',
         itCategoria: 'sticker',
         variant: 'crossfit',
-        precio: '$200',
+        precio: 200,
         descripcion: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. ',
         img: '/img/sticker06.png'
     },

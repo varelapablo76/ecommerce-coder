@@ -9,22 +9,13 @@ import { useState, useContext, createContext } from "react";
 
  export const CartContextProvider = ({children}) =>{
 
-    
-
     const [listaCarrito, SetListaCarrito] = useState([])
 
     function addCart  (items) {
-        // SetListaCarrito ([ ...listaCarrito, items])
-
-    
+ 
         console.log(items)
 
         const index = listaCarrito.findIndex(i => i.id === items.id)
-
-        // console.log(index + ' <lista Total desde cartContext')
-
-        // SetListaCarrito([...listaCarrito, items])
-
 
         console.log(index + ' <this is index')
         console.log(listaCarrito[index])
@@ -34,12 +25,11 @@ import { useState, useContext, createContext } from "react";
             console.log('Repetido')
 
             const oldListaCarrito=listaCarrito[index].cantidad
-            let newListaCarrito = oldListaCarrito + items.cantidad
-            listaCarrito[index].cantidad = newListaCarrito
 
-            let pushCarrito = [...listaCarrito]
+            listaCarrito.splice(index,1)
+            
+            SetListaCarrito([...listaCarrito, {...items, cantidad: items.cantidad + oldListaCarrito }])
 
-            SetListaCarrito(pushCarrito)
 
         } else {
             SetListaCarrito([...listaCarrito, items])
@@ -47,15 +37,47 @@ import { useState, useContext, createContext } from "react";
 
     }
 
-    // function delCart () {   
-    //     SetListaCarrito([])
+
+    function deleItemCart (id) {   
+        SetListaCarrito(listaCarrito.filter((prod) => prod.id !== id))
+    }
+
+    const valorTotal = () => {
+        const totalCarrito = listaCarrito.reduce(
+            (prev, acty) => prev + acty.price * acty.cantidad,
+            0
+        );
+        return totalCarrito;
+    }
+
+    const itemsTotal = () => {
+        const totalCarrito = listaCarrito.reduce(
+            (prev, acty) => prev + acty.cantidad,
+            0
+        );
+        return totalCarrito;
+    }
+    // function totalCantidad (item, cantidad) {
+
+    //     const comparativo = [...listaCarrito]
+    //     comparativo.forEach((prod) => {
+    //         prod.id===item.id && (prod.cantidad += cantidad)
+    //     })
+
     // }
 
+    function emptyCart () {
+        SetListaCarrito([])
+    }
     return (
         <contextoCarrito.Provider value={
             {
                 listaCarrito,
-                addCart
+                addCart,
+                deleItemCart,
+                emptyCart,
+                valorTotal,
+                itemsTotal
             }
         } >
             {children}

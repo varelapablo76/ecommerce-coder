@@ -1,21 +1,22 @@
-import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
+import { useState } from "react"
 import Button from 'react-bootstrap/Button'
 
-
 import ItemCount from './ItemCount'
-import {useState} from 'react'
-import { Link } from "react-router-dom";
 import { UsoCarritoContext } from "../../context/cartContext";
 
 
 const ItemDetail = (item) => {
 
-  const {listaCarrito, addCart} = UsoCarritoContext()
+  
+  
+  // console.log(stock + ' this is stock')
 
-  console.log(item)
-  
-  
+  const {listaCarrito, addCart} = UsoCarritoContext()  
+
   const [comprando, setComprando] = useState(true)
+
+  
   
   const onAdd =(cant) =>{
     setComprando(false)
@@ -39,21 +40,12 @@ console.log(listaCarrito)
           </div>
           {/* <Form> */}
               <div className="d-flex justify-content-between">
-                  <ItemCount className="m-2" min={1} stock={5} id='stockProduct' />
-                  <Form.Select className="m-2" id="opcionDisponible">
-                      <option>Seleccione una Variante</option>
-                  </Form.Select>
-              </div>
-          {/* </Form> */}
+              
               <div className="d-flex justify-content-center align-items-center">
 
               {comprando ? 
-              <Button
-              className="m-2"
-              variant="outline-success"
-              onClick={() => onAdd(1)} > 
-                Agregar al Carrito
-              </Button> 
+
+              <ItemCount className="m-2" min={1} stock={5} id='stockProduct' onAdd={onAdd} />
               
               : 
 
@@ -68,14 +60,23 @@ console.log(listaCarrito)
               </Link>
 
               }
-
+              <Link to="/">
+              
               <Button
               className="m-2"
               variant="outline-secondary">
-                Agregar a Favoritos
+                Continuar Comprando
               </Button>
+              </Link>
   
               </div>
+
+                  {/* <Form.Select className="m-2" id="opcionDisponible">
+                      <option>Seleccione una Variante</option>
+                  </Form.Select> */}
+              </div>
+          {/* </Form> */}
+              
         </div>
       </div>
     )
