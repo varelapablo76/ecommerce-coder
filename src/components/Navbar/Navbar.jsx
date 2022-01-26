@@ -34,10 +34,10 @@ const NavbarStore = () => {
         >
           <Nav className="ms-auto align-items-center">
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/productos/remera">
+              <NavDropdown.Item as={Link} to="/productos/remeras">
                 Remeras
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/productos/sticker">
+              <NavDropdown.Item as={Link} to="/productos/stickers">
                 Stickers
               </NavDropdown.Item>
             </NavDropdown>

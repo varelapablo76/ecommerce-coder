@@ -9,12 +9,12 @@ const Items = (card) => {
         <>
     <Card 
     className="card__product"
-    key ={card.idProd}
+    key ={card.id}
     >
-        <Card.Img variant="top" src={card.img} className="card__img" />
+        <Card.Img variant="top" src={card.image} className="card__img" />
             <Card.Body>
                 <Card.Subtitle className="mb-2 card__product--category text-start">
-                    {card.category}
+                    {card.categoryId}
                 </Card.Subtitle>
                 <Card.Title className="card__product--title text-start  ">
                     {card.title}
@@ -23,9 +23,9 @@ const Items = (card) => {
                     {card.price}
                 </Card.Title>
                 <Card.Text className="card__product--text text-start ">
-                    {card.descripcion}
+                    {card.description}
                 </Card.Text>
-                <Link to={`/productos/descripcion/${card.idProd}`}>
+                <Link to={`/productos/descripcion/${card.id}`}>
                     <Button
                         className="m-2"
                         variant="success">

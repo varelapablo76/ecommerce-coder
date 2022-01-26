@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
-import { descargaProductos } from "./mocks";
 import Spinner from 'react-bootstrap/Spinner'
 import ItemDetail from './ItemDetail';
-import { useParams } from 'react-router-dom';
 
 
 
@@ -12,27 +12,30 @@ const ItemDetailContainer = (detail) => {
     const [unit, setUnit] = useState({})
     const [loading, setLoading] = useState(true)
 
-    const {idProd} = useParams()
+    const {id} = useParams()
 
     useEffect( () => {
-      descargaProductos
-      .then (result => setUnit(result.find (item => item.idProd === idProd )))
-      .catch(err => console.log(err))    
-      .finally (()=> setLoading(false))
-      }, [idProd] )
 
+      const db = getFirestore()
+
+      const queryProd = doc (db, 'productos', id)
+      getDoc(queryProd)
+      .then (res => setUnit ({id: res.id, ...res.data()}))
+      .catch(err => err)
+      .finally( () => setLoading(false))
+      }, [id] )
 
   return (
       <div>
    { loading ? <Spinner animation="grow" /> : 
    <ItemDetail
-   id={unit.idProd}
-   img={unit.img}
+   id={unit.id}
+   image={unit.image}
    opcion={unit.variante}
-   category={unit.itCategoria}
-   title={unit.producto}
-   price={unit.precio}
-   descripcion={unit.descripcion}
+   categoryId={unit.categoryId}
+   title={unit.title}
+   price={unit.price}
+   descripcion={unit.description}
    />
    }   
     </div>

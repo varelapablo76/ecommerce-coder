@@ -1,51 +1,53 @@
 import { useState,useEffect } from "react";
 import Items from "./Items";
-import { descargaProductos } from "./mocks";
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from "react-router-dom";
+import { collection, getFirestore, query, getDocs, where } from "firebase/firestore";
 
 const ItemList = () => {
 
-
-
     const [prod, setProd] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
-    const {itCategoria} = useParams()
+    const {categoryID} = useParams()
 
     useEffect(()=>{
 
-        if (itCategoria) {
-            descargaProductos
-            .then(res => setProd(res.filter(prod => prod.itCategoria === itCategoria)))
-            .catch(err => console.log(err))    
-            .finally(() => setLoading(false))
+         if (categoryID) {
+        const db = getFirestore ()
+
+        const queryCollection= query(collection(db,'productos'), where ('categoryId', '==',categoryID  ) )
+        getDocs(queryCollection)
+        .then(res => setProd(res.docs.map(prod => ({id: prod.id,...prod.data() }))))
+        .catch(err => console.log(err))    
+        .finally(() => setLoading(false))
     
-        } else {
-            
-            descargaProductos
-            .then(res => setProd(res),
-                err => console.log(err))
-            .finally(() => setLoading(false))
-        }
+         } else {
+
+            const db = getFirestore ()
+            const queryCollection = query(collection(db,'productos'),)
+            getDocs(queryCollection)
+            .then(res => setProd(res.docs.map(prod => ({id: prod.id,...prod.data() }))))
+
+         }
         
         
-    }, [itCategoria])      
+    }, [categoryID])      
     
 
         return (
             <div className="d-flex flex-column flex-wrap flex-md-row justify-content-around">
             { loading ? <Spinner animation="grow" /> : 
             prod.map( item => 
-                <div key={item.idProd} 
+                <div key={item.id} 
                     className="m-2">
                         <Items 
-                        idProd={item.idProd}
-                        img={item.img}
-                        category={item.itCategoria}
-                        title={item.producto}
-                        price={item.precio}
-                        descripcion={item.descripcion}
+                        id={item.id}
+                        image={item.image}
+                        categoryId={item.categoryId}
+                        title={item.title}
+                        price={item.price}
+                        description={item.description}
                         />
                 </div>)
                 }

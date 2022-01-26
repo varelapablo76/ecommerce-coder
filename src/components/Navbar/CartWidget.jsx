@@ -27,7 +27,7 @@ const CartWidget = () => {
             >
               <img
                 className="product__content_imgCart col-md-3"
-                src={prod.img}
+                src={prod.image}
                 alt=""
               />
               <div className="product__content col-md-7 d-flex justify-content-between ">

@@ -24,7 +24,7 @@ const ItemDetail = (item) => {
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
         key={item.id}>
-        <img className="product__content_img col-12 col-md-5" src={item.img} alt="" />
+        <img className="product__content_img col-12 col-md-5" src={item.image} alt="" />
         <div className="product__content col-12 col-md-6">
           <div className="product__content_info ms-2">
             <h2 className="product__content_title">{item.title}</h2>
