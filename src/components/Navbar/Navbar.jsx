@@ -16,6 +16,7 @@ const NavbarStore = () => {
 
   const {itemsTotal}  = UsoCarritoContext()
 
+  const valueTest = itemsTotal()
 
 
     return (
@@ -34,7 +35,12 @@ const NavbarStore = () => {
         </NavDropdown>
         <Nav.Link as={Link} to="/carrito">  
           <ImCart className="icon__navbar"/>
-          <Badge bg="danger" className="m-1">{itemsTotal()}</Badge>    
+          {valueTest === 0 ? (
+            <></>
+          )
+          : 
+          (<Badge bg="danger" className="m-1">{itemsTotal()}</Badge>  )  
+          }
         </Nav.Link>
       </Nav>
     </Navbar.Collapse>
