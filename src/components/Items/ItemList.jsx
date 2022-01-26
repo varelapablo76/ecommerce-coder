@@ -32,7 +32,6 @@ const ItemList = () => {
         
     }, [itCategoria])      
     
-    console.log(itCategoria)
 
         return (
             <div className="d-flex flex-column flex-wrap flex-md-row justify-content-around">

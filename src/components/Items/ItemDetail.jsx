@@ -8,11 +8,7 @@ import { UsoCarritoContext } from "../../context/cartContext";
 
 const ItemDetail = (item) => {
 
-  
-  
-  // console.log(stock + ' this is stock')
-
-  const {listaCarrito, addCart} = UsoCarritoContext()  
+  const {addCart} = UsoCarritoContext()  
 
   const [comprando, setComprando] = useState(true)
 
@@ -24,7 +20,6 @@ const ItemDetail = (item) => {
 
   }
 
-console.log(listaCarrito)
 
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
@@ -38,17 +33,13 @@ console.log(listaCarrito)
               {item.descripcion}
             </p>
           </div>
-          {/* <Form> */}
               <div className="d-flex justify-content-between">
               
               <div className="d-flex justify-content-center align-items-center">
 
               {comprando ? 
-
               <ItemCount className="m-2" min={1} stock={5} id='stockProduct' onAdd={onAdd} />
-              
               : 
-
               <Link to ="/carrito">
 
                 <Button
@@ -75,7 +66,6 @@ console.log(listaCarrito)
                       <option>Seleccione una Variante</option>
                   </Form.Select> */}
               </div>
-          {/* </Form> */}
               
         </div>
       </div>

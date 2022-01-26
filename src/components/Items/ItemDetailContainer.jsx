@@ -15,7 +15,6 @@ const ItemDetailContainer = (detail) => {
     const {idProd} = useParams()
 
     useEffect( () => {
-      console.log(idProd)
       descargaProductos
       .then (result => setUnit(result.find (item => item.idProd === idProd )))
       .catch(err => console.log(err))    

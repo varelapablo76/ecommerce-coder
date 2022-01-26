@@ -1,51 +1,41 @@
-import { useState } from "react"
-import Button from 'react-bootstrap/Button'
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 
-import {AiFillCaretUp, AiFillCaretDown} from 'react-icons/ai'
+const ItemCount = ({ min, stock, onAdd }) => {
+  const [cantidad, setCantidad] = useState(min);
 
-const ItemCount = ({min, stock, onAdd}) => {
+  const upCantidad = () => {
+    cantidad < stock ? setCantidad(cantidad + 1) : alert("Stock Insuficiente");
+  };
 
-    const [cantidad, setCantidad] = useState(min)
+  const downCantidad = () => {
+    cantidad > min ? setCantidad(cantidad - 1) : alert("Mínimo de Compra");
+  };
 
-    
-
-
-    const upCantidad =() =>{
-        cantidad < stock ? setCantidad(cantidad+1) : alert('Stock Insuficiente')
-        
-    };
-
-    const downCantidad = () =>{
-        cantidad > min ? setCantidad(cantidad-1) : alert('Mínimo de Compra')
-        
-    }
-
-    return (
-        <>
-                <div className="d-flex justify-content-center align-items-center">
-
-        <button className="product__content_stock d-flex flex-wrap justify-content-around align-items-baseline border border-success rounded " value={cantidad}>
-        <AiFillCaretDown onClick={downCantidad} />
-            <p className="product__content_price">{cantidad}</p>
-            <AiFillCaretUp onClick={upCantidad} /> 
+  return (
+    <>
+      <div className="d-flex justify-content-center align-items-center">
+        <button
+          className="product__content_stock d-flex flex-wrap justify-content-around align-items-baseline border border-success rounded "
+          value={cantidad}
+        >
+          <AiFillCaretDown onClick={downCantidad} />
+          <p className="product__content_price">{cantidad}</p>
+          <AiFillCaretUp onClick={upCantidad} />
         </button>
 
+        <Button
+          className="m-2"
+          variant="outline-success"
+          onClick={() => onAdd(cantidad)}
+        >
+          Agregar al Carrito
+        </Button>
+      </div>
+    </>
+  );
+};
 
-                <Button
-                className="m-2"
-                variant="outline-success"
-                onClick={() =>onAdd(cantidad)} > 
-                Agregar al Carrito
-                </Button> 
-
-
-                </div>
-        
-        </>
-
-
-    )
-}
-
-export default ItemCount
+export default ItemCount;
