@@ -1,13 +1,47 @@
 import { UsoCarritoContext } from "../../context/cartContext";
 import "../../App.css";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
+
 
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const CartWidget = () => {
+  
   const { listaCarrito, deleItemCart, emptyCart, valorTotal } =
     UsoCarritoContext();
+
+  
+    const realizarCompra = async() => {
+
+
+      let order = {}
+  
+      order.buyer = {nombre: 'nombre', mail: 'todo@mail.com', phone: 543811233456}
+      order.total = valorTotal();
+  
+      order.items = listaCarrito.map (itemCarrito => {
+  
+        console.log(itemCarrito)
+        const cantidad = itemCarrito.cantidad;
+        const id = itemCarrito.id;
+        const price = itemCarrito.price*itemCarrito.cantidad;
+        const title = itemCarrito.title;
+  
+        return {id, title, price,cantidad}
+      }
+      )
+
+      console.log(order)
+
+      const db = getFirestore ()
+      const orderCollection = collection(db, 'orders')
+      await addDoc(orderCollection, order)
+      .then(res => console.log(res))
+      .catch (err => console.log(err))
+      .finally(() => console.log('terminado'))
+    }
 
   return (
     <>
@@ -20,6 +54,7 @@ const CartWidget = () => {
         </div>
       ) : (
         <div className="d-flex flex-column align-items-end container">
+          {/* <FormTicket dataForm={dataForm} /> */}
           {listaCarrito.map((prod) => (
             <div
               key={prod.id}
@@ -53,12 +88,18 @@ const CartWidget = () => {
                     <FiTrash />
                   </Button>
                   <Button onClick={emptyCart}>Vaciar Carrito</Button>
+
+                  
+                  <Button onClick={realizarCompra}>Terminar Compra</Button>
+
+
                 </div>
               </div>
             </div>
           ))}
 
           <h2 className="product__content_title">Total: {valorTotal()}</h2>
+          
         </div>
       )}
     </>
