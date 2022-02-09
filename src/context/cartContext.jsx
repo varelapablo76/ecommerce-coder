@@ -50,27 +50,6 @@ export const CartContextProvider = ({ children }) => {
     SetListaCarrito([]);
   }
 
-  // const realizarCompra = () => {
-
-  //   let order = {}
-
-  //   order.buyer = {nombre: 'Pablo', email: 'mail@mail.com', tel: '12456'}
-  //   order.total = valorTotal();
-
-  //   order.items = listaCarrito.map(item => {
-
-  //     const id = item.id
-  //     const title = item.title
-  //     const price = item.price*item.cantidad
-  //     const cantidad = item.cantidad
-
-  //     return (id, title, price,cantidad)
-  //   }
-  //   )
-  //   console.log(order)
-
-
-  // }
 
   return (
     <contextoCarrito.Provider
