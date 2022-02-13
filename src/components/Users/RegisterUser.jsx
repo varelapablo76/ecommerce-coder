@@ -22,6 +22,7 @@ const RegisterUser = () => {
         SetUser(currentUser)
     })
 
+<<<<<<< HEAD
     // const createProfile = async(e) => {
 
 
@@ -34,6 +35,8 @@ const RegisterUser = () => {
     //     .finally(() => console.log('terminado'))
     //   }
 
+=======
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
     const register = async (e) => {
         e.preventDefault();
 
@@ -50,6 +53,7 @@ const RegisterUser = () => {
         }
     }
 
+<<<<<<< HEAD
     // const login = async (e) => {
     //     e.preventDefault();
     //     try {
@@ -64,11 +68,28 @@ const RegisterUser = () => {
     //     console.log(error.message)
     // }
     // }
+=======
+    const login = async (e) => {
+        e.preventDefault();
+        try {
+        const user = await signInWithEmailAndPassword(
+            auth, 
+            loginUser, 
+            loginPassword)
+
+        console.log(user)
+
+    } catch (error) {
+        console.log(error.message)
+    }
+    }
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
 
     const logOut = async () => {
         
         await signOut(auth)
     }
+<<<<<<< HEAD
 
     // if (user !== null) {
     //     const nombreUser = user.displayName;
@@ -80,11 +101,14 @@ const RegisterUser = () => {
     // }
 
 
+=======
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
     return (
         <div className='d-flex justify-content-around flex-wrap'>
             <Form className='col-5' onSubmit={register}>
                 <Form.Group>
                     <Form.Label>Registro de Usuario</Form.Label>
+<<<<<<< HEAD
                     <Form.Control type='name' placeholder="Nombre"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
@@ -94,6 +118,8 @@ const RegisterUser = () => {
                         setRegisterUser(e.target.value)
                     }} />
 
+=======
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
                     <Form.Control type='email' placeholder="correo Electrónico"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
@@ -105,8 +131,12 @@ const RegisterUser = () => {
                     <Button type='submit'>Registrarse</Button> <br />
                 </Form.Group> 
             </Form>
+<<<<<<< HEAD
 
             {/* <Form className='col-5' onSubmit={login}> 
+=======
+            <Form className='col-5' onSubmit={login}> 
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
                 <Form.Group >
                     <Form.Label>Login</Form.Label>
                     <Form.Control type='email' placeholder="correo Electrónico" 
@@ -119,11 +149,16 @@ const RegisterUser = () => {
                     }} />
                     <Button type='submit'>Iniciar</Button>
                 </Form.Group> 
+<<<<<<< HEAD
             </Form> */}
+=======
+            </Form>
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
 
         <Card className='col-9 m-5'>
             <Card.Body>
             <Card.Title>{user ? user.email : 'No hay Usario'}</Card.Title>
+<<<<<<< HEAD
   
             <Card.Text>
         {console.log(user.displayName)} <br/>
@@ -134,6 +169,9 @@ const RegisterUser = () => {
             </Card.Text>
        
         </Card.Body>
+=======
+            </Card.Body>
+>>>>>>> e429b2c8ba5363f376cc889b001efb26cc6ae0d4
             <Button onClick={logOut} disabled={!user} > Cerrar Sesión </Button>
         </Card>
 

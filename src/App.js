@@ -14,7 +14,6 @@ import RegisterUser from './components/Users/RegisterUser'
 
 import { CartContextProvider } from './context/cartContext';
 import { UserShopProvider } from './context/userContext';
-
 // import { CartContextProvider } from './context/cartContext';
  
 
