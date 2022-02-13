@@ -21,7 +21,7 @@ const ItemDetailContainer = (detail) => {
       const queryProd = doc (db, 'productos', id)
       getDoc(queryProd)
       .then (res => setUnit ({id: res.id, ...res.data()}))
-      .catch(err => err)
+      .catch(err => console.log(err))
       .finally( () => setLoading(false))
       }, [id] )
 

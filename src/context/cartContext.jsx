@@ -49,6 +49,8 @@ export const CartContextProvider = ({ children }) => {
   function emptyCart() {
     SetListaCarrito([]);
   }
+
+
   return (
     <contextoCarrito.Provider
       value={{

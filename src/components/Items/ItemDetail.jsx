@@ -58,6 +58,7 @@ const ItemDetail = (item) => {
               variant="outline-secondary">
                 Continuar Comprando
               </Button>
+              
               </Link>
   
               </div>

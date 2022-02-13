@@ -1,16 +1,61 @@
 import { UsoCarritoContext } from "../../context/cartContext";
 import "../../App.css";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
+import FormTicket from "../forms/FormTicket";
 
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { UseUserContext } from "../../context/userContext";
+import { useState } from "react";
 
 const CartWidget = () => {
+  
   const { listaCarrito, deleItemCart, emptyCart, valorTotal } =
     UsoCarritoContext();
 
+  const { userShop } = UseUserContext ()
+  const [orderID,SetOrderId] = useState ('')
+  
+    const realizarCompra = async(e) => {
+      e.preventDefault()
+
+      let order = {}
+  
+      order.buyer = 
+      {nombre: 'Nombre Testing UserShop',
+      email:userShop.email,
+      DNI:32139414}
+      order.total = valorTotal();
+  
+      order.items = listaCarrito.map (itemCarrito => {
+  
+        console.log(itemCarrito)           
+        const cantidad = itemCarrito.cantidad;
+        const id = itemCarrito.id;
+        const price = itemCarrito.price*itemCarrito.cantidad;
+        const title = itemCarrito.title;
+  
+        return {id, title, price,cantidad}
+      }
+      )
+
+      console.log(order)
+      
+
+      const db = getFirestore ()
+      const orderCollection = collection(db, 'orders')
+      await addDoc(orderCollection, order)
+      .then(res => SetOrderId(res.id))
+      .catch (err => console.log(err))
+      .finally(() => console.log('terminado'))
+
+      console.log(JSON.stringify(orderID))
+
+    }
+
   return (
-    <>
+    <div >
       {listaCarrito.length === 0 ? (
         <div className="d-flex flex-column align-items-center ">
           <h2>No Tienes Productos</h2>
@@ -19,7 +64,9 @@ const CartWidget = () => {
           </Link>
         </div>
       ) : (
-        <div className="d-flex flex-column align-items-end container">
+        <div className="d-flex flex-column  align-items-end container">
+
+          <FormTicket   />
           {listaCarrito.map((prod) => (
             <div
               key={prod.id}
@@ -53,15 +100,25 @@ const CartWidget = () => {
                     <FiTrash />
                   </Button>
                   <Button onClick={emptyCart}>Vaciar Carrito</Button>
+
+                  <Link to={`/orders/${orderID}`}>
+                    <Button onClick={realizarCompra}>Terminar Compra</Button>
+                  </Link>
+
+
                 </div>
               </div>
             </div>
           ))}
 
-          <h2 className="product__content_title">Total: {valorTotal()}</h2>
+          
+        <h2 className="product__content_title d-flex align-self-center">Total: {valorTotal()}</h2>
         </div>
       )}
-    </>
+
+      
+
+    </div>
   );
 };
 
