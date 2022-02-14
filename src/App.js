@@ -14,6 +14,7 @@ import RegisterUser from './components/Users/RegisterUser'
 
 import { CartContextProvider } from './context/cartContext';
 import { UserShopProvider } from './context/userContext';
+import The404 from './components/Items/The404';
 // import { CartContextProvider } from './context/cartContext';
  
 
@@ -33,10 +34,12 @@ function App() {
           <Route exact path='/productos' element={<ItemListContainer/>} />
           <Route exact path='/productos/:categoryID' element={<ItemList/>} />
           <Route exact path='/productos/:categoryID/:id'  element={<ItemDetailContainer/>} />
-          <Route path='/orders/:id'  element={<PostShop />} />
+          <Route path='*' element={<The404 /> }/>
+          <Route exact path='/orders/:id'  element={<PostShop />} />
 
-          <Route path='/carrito' element={<CartWidget/>} />
-          <Route path='login' element={<RegisterUser/>}/>
+          <Route exact path='/carrito' element={<CartWidget/>} />
+          <Route exact path='login' element={<RegisterUser/>}/>
+
           {/* <Route path='/sidebar' element={<SidebarCart />} /> */}
         </Routes>
       </BrowserRouter>
