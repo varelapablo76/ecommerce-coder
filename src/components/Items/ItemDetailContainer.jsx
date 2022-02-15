@@ -16,7 +16,7 @@ const ItemDetailContainer = (detail) => {
 
     const {id} = useParams()
 
-    useEffect( async () => {
+    useEffect(  () => {
 
       const db = getFirestore()
 
@@ -48,7 +48,6 @@ const ItemDetailContainer = (detail) => {
      switch (loading) {
        case 2: 
        return <The404 />
-         break;
 
        case 1:
          return   <ItemDetail
@@ -60,7 +59,6 @@ const ItemDetailContainer = (detail) => {
          price={unit.price}
          descripcion={unit.description}
          />
-         break;
 
        default:
         return <Spinner animation="grow" />;

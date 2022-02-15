@@ -95,7 +95,7 @@ import {auth} from '../../firebase/dbConfig'
            <Form.Group>
                <Form.Control {...register('text')}   type='text' placeholder="Nombre" />
                <Form.Control {...register('number')}  type='number' placeholder="DNI" />
-               <Form.Control {...register('mail')}   type='email' placeholder="Correo Electrónico" />
+               <Form.Control {...register('mail')}   type='email' placeholder="Correo Electrónico"  />
                <Form.Control type='password' placeholder='Contraseña' />
                <Button type='submit'>Confirmar Registro</Button>
            </Form.Group> 

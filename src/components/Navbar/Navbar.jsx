@@ -28,7 +28,7 @@ const NavbarStore = () => {
 
     return (
       <>
-          <ImGift onClick={handleOpen}  />
+          <ImCart onClick={handleOpen}  />
 
        
         <Offcanvas show={show} onHide={handleClose}>
@@ -72,7 +72,7 @@ const NavbarStore = () => {
                   <Button onClick={emptyCart}>Vaciar Carrito</Button>
 
                   <Link to='/carrito'>
-                    <Button>Terminar Compra</Button>
+                    <Button onClick={handleClose}>Terminar Compra</Button>
                   </Link>
 
 
@@ -107,21 +107,44 @@ const NavbarStore = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse
-          id="basic-navbar-nav "
-          className="justify-content-between"
-        >
-          <Nav className="ms-auto align-items-center">
-            <NavDropdown title="Categorías" id="basic-nav-dropdown">
+        <Nav>
+
+        <NavDropdown title="Categorías" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/productos/remeras">
                 Remeras
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/productos/stickers">
                 Stickers
               </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos/pines">
+                Pines
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos/parches">
+                Parches
+              </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/carrito">
-              <ImCart className="icon__navbar" />
+        </Nav>
+        <Navbar.Collapse
+          id="basic-navbar-nav "
+          className="justify-content-between"
+        >
+          <Nav className="ms-auto align-items-center">
+            {/* <NavDropdown title="Categorías" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/productos/remeras">
+                Remeras
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos/stickers">
+                Stickers
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos/pines">
+                Pines
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/productos/parches">
+                Parches
+              </NavDropdown.Item>
+            </NavDropdown> */}
+            <Nav.Link >
+            <SidebarCart className="" />
               {valueItemCart === 0 ? (
                 <></>
               ) : (
@@ -129,10 +152,12 @@ const NavbarStore = () => {
                   {itemsTotal()}
                 </Badge>
               )}
+
+              {/* <ImCart /> */}
             </Nav.Link>
-            <Nav.Link>
+            {/* <Nav.Link>
               <SidebarCart />
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -14,7 +14,7 @@ const SidebarCart = () => {
 
     return (
       <>
-          <ImGift onClick={handleOpen}  />
+          <ImCart onClick={handleOpen}  />
 
        
         <Offcanvas show={show} onHide={handleClose}>

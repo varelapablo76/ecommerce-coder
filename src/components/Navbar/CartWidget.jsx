@@ -5,10 +5,10 @@ import Button from "react-bootstrap/Button";
 import FormTicket from "../forms/FormTicket";
 import Modal from 'react-bootstrap/Modal'
 
-import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { UseUserContext } from "../../context/userContext";
 import { useState } from "react";
+import ItemCart from "../Items/ItemCart";
 
 const CartWidget = () => {
   
@@ -19,11 +19,13 @@ const CartWidget = () => {
   const [orderID,SetOrderId] = useState ('')
 
   const [show, SetShow] = useState(false)
-  const handleClose = () => SetShow(false);
+  const handleClose = () => {
+    emptyCart()
+    SetShow(false)
+  };
 
 
-  const Example = () => {
-    
+  const ModalFinishedOrder = () => {
     return (
       <>
 
@@ -41,17 +43,17 @@ const CartWidget = () => {
       </>
     );
   }
-  
-  
-    const realizarCompra = async(e) => {
+    
+  const realizarCompra = async(e) => {
       e.preventDefault()
 
+      //make order
       let order = {}
   
       order.buyer = 
-      {nombre: 'Nombre Testing UserShop',
+      {nombre: userShop.displayName,
       email:userShop.email,
-      DNI:32139414}
+      }
       order.total = valorTotal();
   
       order.items = listaCarrito.map (itemCarrito => {
@@ -68,7 +70,7 @@ const CartWidget = () => {
 
       console.log(order)
       
-
+      //make order in firestore
       const db = getFirestore ()
       const orderCollection = collection(db, 'orders')
       await addDoc(orderCollection, order)
@@ -79,6 +81,8 @@ const CartWidget = () => {
 
 
       console.log(JSON.stringify(orderID))
+
+
 
     }
 
@@ -93,59 +97,36 @@ const CartWidget = () => {
           </Link>
         </div>
       ) : (
-        <div className="d-flex flex-column  align-items-end container">
+        <div className="container">
 
           <FormTicket   />
+
           {listaCarrito.map((prod) => (
-            <div
-              key={prod.id}
-              className="d-flex align-items-center justify-content-around py-3 "
-            >
-              <img
-                className="product__content_imgCart col-md-3"
-                src={prod.image}
-                alt=""
-              />
-              <div className="product__content col-md-7 d-flex justify-content-between ">
-                <div className="product__content_info  ms-2">
-                  <div>
-                    <h2 className="product__content_title">{prod.title}</h2>
-                    <p className="product__content_title">
-                      {" "}
-                      Cantidad: {prod.cantidad}
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="product__content_price"> $ {prod.price}</h3>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center">
-                  <Button
-                    onClick={() => deleItemCart(prod.id)}
-                    variant="outline-secondary"
-                    className="m-2"
-                  > 
-                    <FiTrash />
-                  </Button>
-                  <Button onClick={emptyCart}>Vaciar Carrito</Button>
-
-                  <Link to={`/orders/${orderID}`}>
-                    <Button onClick={realizarCompra}>Terminar Compra</Button>
-                  </Link>
-                  <Example />
-
-
-                </div>
-              </div>
-            </div>
+            <ItemCart 
+            prod={prod}
+            key={prod.id}
+            image={prod.image}
+            title={prod.title}
+            cantidad={prod.cantidad}
+            price={prod.price}
+            id={prod.id}/>
           ))}
-
+            
+          <div className='d-flex justify-content-between'>
           
-        <h2 className="product__content_title d-flex align-self-center">Total: {valorTotal()}</h2>
-        </div>
-      )}
+          <Button onClick={emptyCart}>Vaciar Carrito</Button>
+          <Button onClick={realizarCompra} disabled={!userShop}>Terminar Compra</Button>
 
+            </div> 
+
+          <ModalFinishedOrder />
+          <h2 className="product__content_title">Total: { valorTotal() }</h2>
+          
+            </div>
+          )
+
+          }  
+    
     
       
 
