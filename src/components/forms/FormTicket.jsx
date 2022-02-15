@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import { 
     signInWithEmailAndPassword,
     onAuthStateChanged,
+    signOut
  } from "firebase/auth"
 
 import {auth} from '../../firebase/dbConfig'
@@ -26,6 +27,11 @@ import {auth} from '../../firebase/dbConfig'
 //Manejo de Login Firebase
     const [loginUser, setLoginUser] = useState ()
     const [loginPassword, setLoginPassword] = useState ()
+
+//Manejo LogOut Firebase
+    const logOutUser = async () => {
+        await signOut(auth)
+    }
 
 //Estado de User Firebase   
     const [user, SetUser] = useState({})
@@ -66,8 +72,7 @@ import {auth} from '../../firebase/dbConfig'
         <>
         <h1>Comprar como</h1>
         <h3>{userShop.email} userShop email</h3>
-        <h3>{user.email} user email</h3>
-
+        <Button variant="primary" onClick={logOutUser}>Cerrar Sesión</Button>
         </>
            : 
             <>

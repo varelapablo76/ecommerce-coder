@@ -29,6 +29,7 @@ console.log('tetin3 passed')
 
 
 
+
     return (
       <userContext.Provider
       value= {{
@@ -36,6 +37,7 @@ console.log('tetin3 passed')
           setUserShop,
           createUser,
           updateLogin
+
       }}
       >
         {children}

@@ -3,6 +3,7 @@ import "../../App.css";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import FormTicket from "../forms/FormTicket";
+import Modal from 'react-bootstrap/Modal'
 
 import { FiTrash } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -16,6 +17,31 @@ const CartWidget = () => {
 
   const { userShop } = UseUserContext ()
   const [orderID,SetOrderId] = useState ('')
+
+  const [show, SetShow] = useState(false)
+  const handleClose = () => SetShow(false);
+
+
+  const Example = () => {
+    
+    return (
+      <>
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Compra Finalizada</Modal.Title>
+            </Modal.Header>
+          <Modal.Body>Su comprobante es el {orderID}</Modal.Body>
+          <Link to='/'>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Link>
+        </Modal>
+      </>
+    );
+  }
+  
   
     const realizarCompra = async(e) => {
       e.preventDefault()
@@ -49,6 +75,8 @@ const CartWidget = () => {
       .then(res => SetOrderId(res.id))
       .catch (err => console.log(err))
       .finally(() => console.log('terminado'))
+      .finally(() => SetShow(true))
+
 
       console.log(JSON.stringify(orderID))
 
@@ -56,6 +84,7 @@ const CartWidget = () => {
 
   return (
     <div >
+      
       {listaCarrito.length === 0 ? (
         <div className="d-flex flex-column align-items-center ">
           <h2>No Tienes Productos</h2>
@@ -104,6 +133,7 @@ const CartWidget = () => {
                   <Link to={`/orders/${orderID}`}>
                     <Button onClick={realizarCompra}>Terminar Compra</Button>
                   </Link>
+                  <Example />
 
 
                 </div>
@@ -116,6 +146,7 @@ const CartWidget = () => {
         </div>
       )}
 
+    
       
 
     </div>

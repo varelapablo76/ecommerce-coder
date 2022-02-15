@@ -43,17 +43,7 @@ const ItemDetailContainer = (detail) => {
 
   return (
       <div>
-   {/* { loading ? <Spinner animation="grow" /> : 
-   <ItemDetail
-   id={unit.id}
-   image={unit.image}
-   opcion={unit.variante}
-   categoryId={unit.categoryId}
-   title={unit.title}
-   price={unit.price}
-   descripcion={unit.description}
-   />
-   }    */}
+
    {(()=>{
      switch (loading) {
        case 2: 
