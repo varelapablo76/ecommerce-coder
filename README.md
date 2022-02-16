@@ -2,23 +2,41 @@
 
 Este proyecto fué creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Ingrese al [DEMO](https://quirky-austin-4ce0ab.netlify.app/) aquí
 
-Para iniciar este proyecto, debes instalar las dependencias que permite que este proyecto sea desarrollado
+## Instalation
+
+To start this project, you must install the dependencies that allow this project to be developed
 
 ### `npm install`
 
-Una vez instalado -de forma automática las dependencias - se debe ejecutar el siguiente comando en el directorio del mismo:
+Once the dependencies are installed - automatically - the following command must be executed in its directory:
 
 ### `npm start`
 
-para que una vez iniciado,ingresa a esta dirección
-[http://localhost:3000](http://localhost:3000) puedas visualizar el proyecto en el navegador
+so that once started, enter to[http://localhost:3000](http://localhost:3000) when you can visualize the project in the browser locally -without internet-
 
-Para este proyecto fué utilizado las siguientes dependencias:
+<p>&nbsp;</p>
 
-* React Bootstrap 
-* React Router
-* React Icons
+### *For this project the following dependencies were used:*
+
+**bootstrap: 5.1.3**<br>
+*for use of css components with original class words*
+
+**firebase: 9.6.4**<br>
+*for storage and administration of products, orders and users.*
+
+**firebaseui: 6.0.0**<br>
+*for login with interface of external services (google)*
+
+**react-bootstrap: 2.0.3**<br>
+*for construction and use of components definied.*
+
+**react-icons: 4.3.1**<br>
+*for use in navbar and components for friendly use.*
+
+**react-router-dom: 6.2.1**<br>
+*for use of redirect and navigation between components with a best performance with global render.*
+
 
 <img src="https://media.giphy.com/media/OPetODaXY0A09VUIcW/giphy.gif" alt="Demo del Store">
