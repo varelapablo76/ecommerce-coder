@@ -12,14 +12,11 @@ const ItemDetail = (item) => {
 
   const [comprando, setComprando] = useState(true)
 
-  
-  
   const onAdd =(cant) =>{
     setComprando(false)
     addCart( {...item, cantidad: cant} )
 
   }
-
 
     return (
         <div className="d-flex flex-column flex-md-row justify-content-md-around container"
@@ -63,9 +60,6 @@ const ItemDetail = (item) => {
   
               </div>
 
-                  {/* <Form.Select className="m-2" id="opcionDisponible">
-                      <option>Seleccione una Variante</option>
-                  </Form.Select> */}
               </div>
               
         </div>

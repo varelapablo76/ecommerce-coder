@@ -103,7 +103,6 @@ const CartWidget = () => {
 
           {listaCarrito.map((prod) => (
             <ItemCart 
-            prod={prod}
             key={prod.id}
             image={prod.image}
             title={prod.title}
@@ -112,7 +111,7 @@ const CartWidget = () => {
             id={prod.id}/>
           ))}
             
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-around'>
           
           <Button onClick={emptyCart}>Vaciar Carrito</Button>
           <Button onClick={realizarCompra} disabled={!userShop}>Terminar Compra</Button>
@@ -123,13 +122,7 @@ const CartWidget = () => {
           <h2 className="product__content_title">Total: { valorTotal() }</h2>
           
             </div>
-          )
-
-          }  
-    
-    
-      
-
+          )  }  
     </div>
   );
 };

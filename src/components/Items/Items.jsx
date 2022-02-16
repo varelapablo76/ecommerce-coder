@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
 
-const Items = (card) => {
+function Items ({card}) {
 
     return (
         <>

@@ -9,7 +9,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import { UsoCarritoContext } from "../../context/cartContext";
 
-import { ImCart,ImGift, ImCross } from "react-icons/im";
+import { ImCart, ImCross } from "react-icons/im";
 import Badge from "react-bootstrap/Badge";
 
 import logo from "./logoFeikIT.svg";
@@ -18,7 +18,6 @@ const NavbarStore = () => {
 
   const { listaCarrito, itemsTotal,deleItemCart,emptyCart } = UsoCarritoContext();
 
-  
   const SidebarCart = () => {
 
     const [show, setShow] = useState(false);
@@ -29,8 +28,7 @@ const NavbarStore = () => {
     return (
       <>
           <ImCart onClick={handleOpen}  />
-
-       
+     
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Tu Compra</Offcanvas.Title>
@@ -80,18 +78,12 @@ const NavbarStore = () => {
               </div>
             </div>
           ))}
-          {/* <h2 className="product__content_title d-flex align-self-center">Total: {valorTotal()}</h2> */}
-
-        
 
           </Offcanvas.Body>
         </Offcanvas>
       </>
     );
   }
-  
-
-
 
   const valueItemCart = itemsTotal();
 
@@ -129,20 +121,6 @@ const NavbarStore = () => {
           className="justify-content-between"
         >
           <Nav className="ms-auto align-items-center">
-            {/* <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/productos/remeras">
-                Remeras
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/productos/stickers">
-                Stickers
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/productos/pines">
-                Pines
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/productos/parches">
-                Parches
-              </NavDropdown.Item>
-            </NavDropdown> */}
             <Nav.Link >
             <SidebarCart className="" />
               {valueItemCart === 0 ? (
@@ -152,12 +130,8 @@ const NavbarStore = () => {
                   {itemsTotal()}
                 </Badge>
               )}
-
-              {/* <ImCart /> */}
             </Nav.Link>
-            {/* <Nav.Link>
-              <SidebarCart />
-            </Nav.Link> */}
+
           </Nav>
         </Navbar.Collapse>
       </Container>

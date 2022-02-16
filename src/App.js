@@ -6,9 +6,7 @@ import ItemListContainer from './components/Items/ItemListContainer'
 import  NavbarStore  from './components/Navbar/Navbar.jsx';
 import ItemDetailContainer from './components/Items/ItemDetailContainer';
 import CartWidget from './components/Navbar/CartWidget'
-import ItemList from './components/Items/ItemList';
 import PostShop from './components/Items/PostShop';
-import SidebarCart from './components/Navbar/SidebarCart';
 
 import RegisterUser from './components/Users/RegisterUser'
 
@@ -32,7 +30,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer/>} />
           <Route exact path='/productos' element={<ItemListContainer/>} />
-          <Route exact path='/productos/:categoryID' element={<ItemList/>} />
+          <Route exact path='/productos/:categoryID' element={<ItemListContainer/>} />
           <Route exact path='/productos/:categoryID/:id'  element={<ItemDetailContainer/>} />
           <Route path='*' element={<The404 /> }/>
           <Route exact path='/orders/:id'  element={<PostShop />} />
