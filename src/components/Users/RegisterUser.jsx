@@ -31,19 +31,8 @@ const RegisterUser = () => {
         SetUser(currentUser)
     })
 
-    
-    // const createProfile = async(e) => {
 
-
-  
-    //     const db = getFirestore ()
-    //     const orderCollection = collection(db, 'users')
-    //     await addDoc(orderCollection, order)
-    //     .then(res => console.log(res))
-    //     .catch (err => console.log(err))
-    //     .finally(() => console.log('terminado'))
-    //   }
-
+//registro de usuario
     const register = async (e) => {
         e.preventDefault();
 
@@ -60,6 +49,7 @@ const RegisterUser = () => {
         }
     }
 
+//Inicio de Sesión de usuario
     const login = async (e) => {
         e.preventDefault();
         try {
@@ -75,6 +65,7 @@ const RegisterUser = () => {
     }
     }
 
+//Inicio de Sesion con Google
     const loginWithGoogle = () =>{
     
         signInWithPopup(auth, provider)
@@ -97,12 +88,12 @@ const RegisterUser = () => {
       });
     }
     
-
-    const logOut = async () => {
-        
+//Cierre de Sesión
+    const logOut = async () => {        
         await signOut(auth)
     }
 
+//Actualización de Usuario
     const updateUserName =  (e) => {
         e.preventDefault()
         console.log(updNameUser)
@@ -116,31 +107,98 @@ const RegisterUser = () => {
           });
     };
 
-    // if (user !== null) {
-    //     const nombreUser = user.displayName;
-    //     const emailUser = user.email;
-    //     const photoUser = user.photoURL;
-    //     const emailVerf = user.emailVerified;
+//Formularios para Condicional
+    // function FormForUsers () {
+    //     <div className='d-flex justify-content-around flex-wrap'>
+    //     <Form className='col-5' onSubmit={register}>
+    //         <Form.Group>
+    //             <Form.Label>Registro de Usuario</Form.Label>
+    //             {/* <Form.Control type='name' placeholder="Nombre"
+    //             onChange={(e) => {
+    //                 setRegisterUser(e.target.value)
+    //             }} />
+    //             <Form.Control type='number' placeholder="DNI"
+    //             onChange={(e) => {
+    //                 setRegisterUser(e.target.value)
+    //             }} /> */}
 
-    //     const uid = user.uid;
+    //             <Form.Control type='email' placeholder="correo Electrónico"
+    //             onChange={(e) => {
+    //                 setRegisterUser(e.target.value)
+    //             }} />
+    //             <Form.Control type='password' placeholder="Contraseña" 
+    //             onChange={(e) => {
+    //                 setRegisterPassword(e.target.value)
+    //             }} /> 
+    //             <Button type='submit'>Registrarse</Button> <br />
+    //         </Form.Group> 
+    //     </Form>
+
+     
+    //     <Form className='col-5' onSubmit={login}> 
+    //         <Form.Group >
+    //             <Form.Label>Login</Form.Label>
+    //             <Form.Control type='email' placeholder="correo Electrónico" 
+    //             onChange={(e) => {
+    //                 setLoginUser(e.target.value)
+    //             }} />
+    //             <Form.Control type='password' placeholder="Contraseña"  
+    //             onChange={(e) => {
+    //                 setLoginPassword(e.target.value)
+    //             }} />
+    //             <Button type='submit'>Iniciar Sesión</Button>
+    //             <Button variant='danger' onClick={loginWithGoogle}>Login With Google</Button>
+
+    //         </Form.Group> 
+    //     </Form>
+    // </div>
     // }
 
+    // const ProfileUser = () => {
+    //         <Form className='col-5' onSubmit={updateUserName}>
+    //         <Form.Group>
+    //             <h3>User Profile</h3>
+    //             <Form.Label>Nombre y Apellido</Form.Label>
+    //             <Form.Control type="text" placeholder={user.displayName} 
+    //              onChange={(e) => {
+    //                 setUpdNameUser(e.target.value)
+    //             }} />
 
+    //             <Form.Label>Numero Telefónico</Form.Label>
+    //             <Form.Control type="number" placeholder={user.phoneNumber} 
+    //              onChange={(e) => {
+    //                 setUpdPhoneNumber(e.target.value)
+    //             }} />
+
+    //             <Form.Label>Email</Form.Label>
+    //             <Form.Control type="email" placeholder={user.email} disabled/>
+
+    //             <Form.Label>ID Unico de Usuario</Form.Label>
+    //             <Form.Control type="text" placeholder={user.uid} disabled/>
+
+    //             <Button variant="secondary" type='submit'> Actualizar</Button>
+    //         </Form.Group>
+    //     </Form> 
+
+    // }
+    
     return (
-        <div className='d-flex justify-content-around flex-wrap'>
-            <Button variant='danger' onClick={loginWithGoogle}>Login With Google</Button>
+
+        <div>
+        { !user ? 
+            <div className='d-flex justify-content-around flex-wrap'>
             <Form className='col-5' onSubmit={register}>
                 <Form.Group>
                     <Form.Label>Registro de Usuario</Form.Label>
-                    <Form.Control type='name' placeholder="Nombre"
+                    {/* <Form.Control type='name' placeholder="Nombre"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
                     }} />
                     <Form.Control type='number' placeholder="DNI"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
-                    }} />
-
+                    }} /> */}
+    
                     <Form.Control type='email' placeholder="correo Electrónico"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
@@ -152,32 +210,8 @@ const RegisterUser = () => {
                     <Button type='submit'>Registrarse</Button> <br />
                 </Form.Group> 
             </Form>
-
-            {/* <Form className='col-5' onSubmit={updateUserName}>
-                <Form.Group>
-                    <h3>User Profile</h3>
-                    <Form.Label>Nombre y Apellido</Form.Label>
-                    <Form.Control type="text" placeholder={user.displayName} 
-                     onChange={(e) => {
-                        setUpdNameUser(e.target.value)
-                    }} />
-
-                    <Form.Label>Numero Telefónico</Form.Label>
-                    <Form.Control type="number" placeholder={user.phoneNumber} 
-                     onChange={(e) => {
-                        setUpdPhoneNumber(e.target.value)
-                    }} />
-
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder={user.email} disabled/>
-
-                    <Form.Label>ID Unico de Usuario</Form.Label>
-                    <Form.Control type="text" placeholder={user.uid} disabled/>
-
-                    <Button variant="secondary" type='submit'> Actualizar</Button>
-                </Form.Group>
-            </Form> */}
-
+    
+         
             <Form className='col-5' onSubmit={login}> 
                 <Form.Group >
                     <Form.Label>Login</Form.Label>
@@ -189,26 +223,45 @@ const RegisterUser = () => {
                     onChange={(e) => {
                         setLoginPassword(e.target.value)
                     }} />
-                    <Button type='submit'>Iniciar</Button>
+                    <Button type='submit'>Iniciar Sesión</Button>
+                    <Button variant='danger' onClick={loginWithGoogle}>Login With Google</Button>
+    
                 </Form.Group> 
             </Form>
+        </div>
+         : 
+     
+            <Form className='col-5' onSubmit={updateUserName}>
+            <Form.Group>
+                <h3>User Profile</h3>
+                <Form.Label>Nombre y Apellido</Form.Label>
+                <Form.Control type="text" placeholder={user.displayName} 
+                 onChange={(e) => {
+                    setUpdNameUser(e.target.value)
+                }} />
 
-        <Card className='col-9 m-5'>
-            <Card.Body>
-            <Card.Title>{user ? user.email : 'No hay Usario'}</Card.Title>
-  
-            <Card.Text>
-        {/* {console.log(user.displayName)} <br/> */}
-        {user ? user.displayName : 'No hay Nombre'} <br/>
-        {user ? user.uid : 'No hay Usario'}
-            </Card.Text>
-       
-        </Card.Body>
-            <Button onClick={logOut} disabled={!user} > Cerrar Sesión </Button>
-        </Card>
+                {/* <Form.Label>Numero Telefónico</Form.Label>
+                <Form.Control type="number" placeholder={user.phoneNumber} 
+                 onChange={(e) => {
+                    setUpdPhoneNumber(e.target.value)
+                }} /> */}
 
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder={user.email} disabled/>
+
+                <Form.Label>ID Unico de Usuario</Form.Label>
+                <Form.Control type="text" placeholder={user.uid} disabled/>
+                <Button variant="secondary" type='submit'> Actualizar</Button>
+                <Button variant='danger' onClick={logOut}>Cerrar Sesión</Button>
+            </Form.Group>
+        </Form> 
+
+    
+        }
         </div>
     )
+    
+    
 }
 
 export default RegisterUser

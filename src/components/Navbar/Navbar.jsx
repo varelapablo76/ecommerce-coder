@@ -8,15 +8,26 @@ import { useState } from "react"
 
 import { Link } from "react-router-dom";
 import { UsoCarritoContext } from "../../context/cartContext";
+import { UseUserContext } from "../../context/userContext";
 
-import { ImCart, ImCross } from "react-icons/im";
+
+
+import { ImCart, ImCross, ImUser } from "react-icons/im";
 import Badge from "react-bootstrap/Badge";
 
 import logo from "./logoFeikIT.svg";
 
+import { 
+  signOut,
+} from "firebase/auth"
+import {auth} from '../../firebase/dbConfig'
+
 const NavbarStore = () => {
 
   const { listaCarrito, itemsTotal,deleItemCart,emptyCart } = UsoCarritoContext();
+  const {userShop} = UseUserContext();
+
+  
 
   const SidebarCart = () => {
 
@@ -85,6 +96,40 @@ const NavbarStore = () => {
     );
   }
 
+  const SidebarUser = () => {
+
+    const logOut = async () => {        
+      await signOut(auth)
+  }
+
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleOpen = () => setShow(true);
+
+    return (
+      <>
+          <ImUser onClick={handleOpen}  />
+     
+        <Offcanvas show={show} onHide={handleClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>{userShop.displayName}</Offcanvas.Title>
+            {console.log(userShop.displayName)}
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+
+        <Link to="/usuario" >  
+          <Button>Actualizar Datos</Button>
+        </Link>
+          <Button onClick={logOut}>Cerrar Sesión</Button>
+
+          </Offcanvas.Body>
+        </Offcanvas>
+      </>
+    );
+  }
+
+  
   const valueItemCart = itemsTotal();
 
   return (
@@ -121,6 +166,8 @@ const NavbarStore = () => {
           className="justify-content-between"
         >
           <Nav className="ms-auto align-items-center">
+           {/* <SidebarUser />  */}
+           {userShop ? <SidebarUser /> : <></>}
             <Nav.Link >
             <SidebarCart className="" />
               {valueItemCart === 0 ? (

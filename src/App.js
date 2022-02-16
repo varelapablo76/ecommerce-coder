@@ -13,10 +13,7 @@ import RegisterUser from './components/Users/RegisterUser'
 import { CartContextProvider } from './context/cartContext';
 import { UserShopProvider } from './context/userContext';
 import The404 from './components/Items/The404';
-// import { CartContextProvider } from './context/cartContext';
- 
 
-// export const contextApp = createContext([])
 
 function App() {
   return (
@@ -36,9 +33,8 @@ function App() {
           <Route exact path='/orders/:id'  element={<PostShop />} />
 
           <Route exact path='/carrito' element={<CartWidget/>} />
-          <Route exact path='login' element={<RegisterUser/>}/>
+          <Route exact path='/usuario' element={<RegisterUser/>}/>
 
-          {/* <Route path='/sidebar' element={<SidebarCart />} /> */}
         </Routes>
       </BrowserRouter>
 

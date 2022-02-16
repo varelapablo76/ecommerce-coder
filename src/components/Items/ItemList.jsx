@@ -1,21 +1,6 @@
 import {memo} from 'react'
 import Items from './Items'
-// const ItemList = memo (productos) => {
 
-
-//         return (
-//             <>
-//             {productos.map(prod => <Items prod={card}/>)}
-//             </>
-          
-//             )
-        
-// };
-
-// (oldProps, newProps) => oldProps.productos.length===newProps.productos.length
-    
-
-// export default ItemList
 
 const ItemList = memo (
     
@@ -27,7 +12,7 @@ const ItemList = memo (
             </>
         )
     }
+    ,(oldProd, newProd) => oldProd.itemsProd.length === newProd.itemsProd.length
     )
-    // ,(oldProd, newProd) => console.log(oldProd)
 
 export default ItemList

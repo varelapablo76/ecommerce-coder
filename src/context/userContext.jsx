@@ -25,11 +25,6 @@ console.log('tetin3 passed')
       setUserShop(user)
     }
 
-
-
-
-
-
     return (
       <userContext.Provider
       value= {{
