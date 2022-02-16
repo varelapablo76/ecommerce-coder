@@ -23,7 +23,7 @@ const ItemDetail = (item) => {
       <img
         className="product__content_img col-12 col-md-5"
         src={item.image}
-        alt=""
+        alt={item.image}
       />
       <div className="product__content col-12 col-md-6">
         <div className="product__content_info ms-2">

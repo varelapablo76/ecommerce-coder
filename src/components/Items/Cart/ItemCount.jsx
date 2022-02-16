@@ -18,7 +18,7 @@ const ItemCount = ({ min, stock, onAdd }) => {
     <>
       <div className="d-flex justify-content-center align-items-center">
         <Button
-          variant='light'
+          variant="light"
           className="product__content_stock d-flex flex-wrap justify-content-around align-items-baseline border border-success rounded "
           value={cantidad}
         >
@@ -33,8 +33,7 @@ const ItemCount = ({ min, stock, onAdd }) => {
           onClick={() => onAdd(cantidad)}
           disabled={!stock}
         >
-          {stock ? 'Agregar al Carrito' : 'Sin Stock' }
-          
+          {stock ? "Agregar al Carrito" : "Sin Stock"}
         </Button>
       </div>
     </>

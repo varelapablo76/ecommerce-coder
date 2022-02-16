@@ -50,7 +50,6 @@ export const CartContextProvider = ({ children }) => {
     SetListaCarrito([]);
   }
 
-
   return (
     <contextoCarrito.Provider
       value={{

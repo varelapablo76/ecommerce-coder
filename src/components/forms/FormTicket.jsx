@@ -3,7 +3,6 @@ import { UseUserContext } from "../../context/userContext";
 import Form from "react-bootstrap/Form";
 import { Button, Modal } from "react-bootstrap";
 
-
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -13,35 +12,28 @@ import {
 import { auth } from "../../firebase/dbConfig";
 import { Link } from "react-router-dom";
 
-
-
 const FormTicket = () => {
-
   const [modalError, setModalError] = useState(false);
   const handleClose = () => setModalError(false);
 
   const ModalErrorUser = (user) => {
-
-  
     return (
       <>
         <Modal show={modalError} onHide={handleClose}>
-      
-        <div className="containerModal m-3 d-flex flex-column align-items-center">
-  
-            <Modal.Title className='text-center'>Inicio Incorrecto</Modal.Title>
-          <Modal.Body className='text-center'>Su correo o clave no son correctas. <br/> Intente nuevamente </Modal.Body>
-  
+          <div className="containerModal m-3 d-flex flex-column align-items-center">
+            <Modal.Title className="text-center">Inicio Incorrecto</Modal.Title>
+            <Modal.Body className="text-center">
+              Su correo o clave no son correctas. <br /> Intente nuevamente{" "}
+            </Modal.Body>
+
             <Button variant="info" onClick={handleClose}>
               Close
             </Button>
           </div>
-  
         </Modal>
       </>
     );
-  }
-  
+  };
 
   //Contexto de Usuario
   const { userShop, updateLogin } = UseUserContext();
@@ -74,21 +66,18 @@ const FormTicket = () => {
         loginUser,
         loginPassword
       );
-
     } catch (error) {
       console.log(error.message);
-      setModalError(true)
-
+      setModalError(true);
     }
   };
 
   return (
     <>
       {userShop ? (
-        <div className='d-flex flex-column '>
+        <div className="d-flex flex-column ">
           <h5>Comprar como</h5>
           <p>{userShop.displayName} </p> <p>{userShop.email} </p>
-
           <Button variant="primary" onClick={logOutUser}>
             Cerrar Sesión
           </Button>
@@ -112,14 +101,15 @@ const FormTicket = () => {
                   setLoginPassword(e.target.value);
                 }}
               />
-              <Button variant='outline-primary' type="submit">Iniciar</Button>
+              <Button variant="outline-primary" type="submit">
+                Iniciar
+              </Button>
             </Form.Group>
           </Form>
-          <Link to='/usuario'>
-          <p>Registrarte</p>
-          
+          <Link to="/usuario">
+            <p>Registrarte</p>
           </Link>
-         <ModalErrorUser/>
+          <ModalErrorUser />
         </>
       )}
     </>

@@ -14,7 +14,7 @@ const ItemCart = (prod) => {
       <img
         className="product__content_imgCart "
         src={prod.image}
-        alt=""
+        alt={prod.title}
       />
       <div className="product__content col-md-7 d-flex justify-content-between ">
         <div className="product__content_info  ms-2">
