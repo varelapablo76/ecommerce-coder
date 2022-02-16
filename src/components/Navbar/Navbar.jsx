@@ -8,7 +8,6 @@ import { useState } from "react"
 
 import { Link } from "react-router-dom";
 import { UsoCarritoContext } from "../../context/cartContext";
-import { UseUserContext } from "../../context/userContext";
 
 
 
@@ -18,6 +17,7 @@ import Badge from "react-bootstrap/Badge";
 import logo from "./logoFeikIT.svg";
 
 import { 
+  onAuthStateChanged,
   signOut,
 } from "firebase/auth"
 import {auth} from '../../firebase/dbConfig'
@@ -25,8 +25,12 @@ import {auth} from '../../firebase/dbConfig'
 const NavbarStore = () => {
 
   const { listaCarrito, itemsTotal,deleItemCart,emptyCart } = UsoCarritoContext();
-  const {userShop} = UseUserContext();
 
+  const [user, SetUser] = useState({})
+
+  onAuthStateChanged(auth, (currentUser) => {
+      SetUser(currentUser)
+  })
   
 
   const SidebarCart = () => {
@@ -98,30 +102,34 @@ const NavbarStore = () => {
 
   const SidebarUser = () => {
 
-    const logOut = async () => {        
-      await signOut(auth)
-  }
-
+    
+    
     const [show, setShow] = useState(false);
-  
+    
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
-
+    
+    const logOut = async () => {        
+      await signOut(auth)
+      setShow(false)
+  }
     return (
       <>
           <ImUser onClick={handleOpen}  />
      
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{userShop.displayName}</Offcanvas.Title>
-            {console.log(userShop.displayName)}
+            <Offcanvas.Title>{user.displayName}</Offcanvas.Title>
+            {console.log(user.displayName)}
           </Offcanvas.Header>
           <Offcanvas.Body>
 
         <Link to="/usuario" >  
           <Button>Actualizar Datos</Button>
         </Link>
+        <Link to='/' >
           <Button onClick={logOut}>Cerrar Sesión</Button>
+        </Link>
 
           </Offcanvas.Body>
         </Offcanvas>
@@ -167,7 +175,12 @@ const NavbarStore = () => {
         >
           <Nav className="ms-auto align-items-center">
            {/* <SidebarUser />  */}
-           {userShop ? <SidebarUser /> : <></>}
+           { user ? <SidebarUser /> :             
+           <Nav.Link as={Link} to='/usuario' >
+            Iniciar Sesión
+            </Nav.Link>
+            }
+           
             <Nav.Link >
             <SidebarCart className="" />
               {valueItemCart === 0 ? (

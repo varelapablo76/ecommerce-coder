@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Form, Card } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import { 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -23,7 +23,6 @@ const RegisterUser = () => {
     const [loginPassword, setLoginPassword] = useState ()
 
     const [updNameUser,setUpdNameUser] = useState('')
-    const [updPhoneNumber, setUpdPhoneNumber] = useState()
 
     const [user, SetUser] = useState({})
 
@@ -72,17 +71,21 @@ const RegisterUser = () => {
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
+        // eslint-disable-next-line
         const token = credential.accessToken;
         // The signed-in user info.
+        // eslint-disable-next-line
         const user = result.user;
         // ...
       }).catch((error) => {
-        // Handle Errors here.
+        // eslint-disable-next-line
         const errorCode = error.code;
+        // eslint-disable-next-line
         const errorMessage = error.message;
-        // The email of the user's account used.
+        // eslint-disable-next-line
         const email = error.email;
         // The AuthCredential type that was used.
+        // eslint-disable-next-line
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
@@ -239,12 +242,6 @@ const RegisterUser = () => {
                  onChange={(e) => {
                     setUpdNameUser(e.target.value)
                 }} />
-
-                {/* <Form.Label>Numero Telefónico</Form.Label>
-                <Form.Control type="number" placeholder={user.phoneNumber} 
-                 onChange={(e) => {
-                    setUpdPhoneNumber(e.target.value)
-                }} /> */}
 
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder={user.email} disabled/>

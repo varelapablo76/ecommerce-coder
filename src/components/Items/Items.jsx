@@ -19,8 +19,9 @@ function Items ({card}) {
                 <Card.Title className="card__product--title text-start  ">
                     {card.title}
                 </Card.Title>
+                <small className="text-muted">Disponibles: {card.stock}</small>
                 <Card.Title  className="card__product--price text-start text-danger ">
-                    {card.price}
+                    $ {card.price}
                 </Card.Title>
                 <Card.Text className="card__product--text text-start ">
                     {card.description}

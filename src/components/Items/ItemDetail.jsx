@@ -28,7 +28,9 @@ const ItemDetail = (item) => {
       <div className="product__content col-12 col-md-6">
         <div className="product__content_info ms-2">
           <h2 className="product__content_title">{item.title}</h2>
-          <h3 className="product__content_price"> {item.price}</h3>
+          <h3 className="product__content_price"> $ {item.price}</h3>
+          <p>Stock ({item.stock}) unidades</p>
+          {console.log(item.stock)}
           <p className="product__content_detail fst-italic">
             {item.descripcion}
           </p>
@@ -39,7 +41,7 @@ const ItemDetail = (item) => {
               <ItemCount
                 className="m-2"
                 min={1}
-                stock={5}
+                stock={item.stock}
                 id="stockProduct"
                 onAdd={onAdd}
               />

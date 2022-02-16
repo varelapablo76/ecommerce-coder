@@ -10,7 +10,7 @@ import { collection, getFirestore, query, getDocs, where } from "firebase/firest
 const ItemListContainer = ({listProduct}) => {
 
     const [prod, setProd] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const {categoryID} = useParams()
     console.log(categoryID)
@@ -32,6 +32,8 @@ const ItemListContainer = ({listProduct}) => {
             const queryCollection = query(collection(db,'productos'),)
             getDocs(queryCollection)
             .then(res => setProd(res.docs.map(prod => ({id: prod.id,...prod.data() }))))
+            .catch(err => console.log(err))    
+            .finally(() => setLoading(false))
 
          }
         
@@ -40,7 +42,7 @@ const ItemListContainer = ({listProduct}) => {
     
 
     return (
-        <div className="d-flex flex-column flex-wrap flex-md-row justify-content-around">
+        <div className="d-flex flex-column flex-wrap flex-md-row justify-content-around ">
         { loading ? <Spinner animation="grow" /> 
                     : 
                    <ItemList itemsProd={prod}

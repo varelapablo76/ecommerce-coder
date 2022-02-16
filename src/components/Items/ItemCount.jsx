@@ -30,8 +30,10 @@ const ItemCount = ({ min, stock, onAdd }) => {
           className="m-2"
           variant="outline-success"
           onClick={() => onAdd(cantidad)}
+          disabled={!stock}
         >
-          Agregar al Carrito
+          {stock ? 'Agregar al Carrito' : 'Sin Stock' }
+          
         </Button>
       </div>
     </>

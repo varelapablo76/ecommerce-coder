@@ -1,6 +1,6 @@
 import { UsoCarritoContext } from "../../context/cartContext";
 import "../../App.css";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore , query, where, documentId, writeBatch,getDocs } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import FormTicket from "../forms/FormTicket";
 import Modal from "react-bootstrap/Modal";
@@ -72,6 +72,28 @@ const CartWidget = () => {
       .finally(() => SetShow(true));
 
     console.log(JSON.stringify(orderID));
+
+    //update Stock
+    const collectionFirebase = collection(db, 'productos')
+
+    const stockCollectionFirebase = query(
+        collectionFirebase, 
+        where( documentId() , 'in', listaCarrito.map(producto => producto.id))          
+    ) 
+
+    const batch = writeBatch(db)       
+        
+        await getDocs(stockCollectionFirebase)
+        .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
+                stock: res.data().stock - listaCarrito.find(item => item.id === res.id).cantidad
+            }) 
+        ))
+        .catch(err => console.log(err))
+        .finally(()=> console.log('stock actualizado'))
+
+        batch.commit()
+
+
   };
 
   return (

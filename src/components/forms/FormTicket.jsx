@@ -15,13 +15,13 @@ import { Link } from "react-router-dom";
 
 const FormTicket = () => {
   //Contexto de Usuario
-  const { userShop, updateLogin, createUser } = UseUserContext();
+  const { userShop, updateLogin } = UseUserContext();
 
   //Seteo de Usuario
-  const [userData, SetuserData] = useState();
+  // const [userData, SetuserData] = useState();
 
   //Manejador de Registros
-  const { register, handleSubmit } = useForm();
+  // const { register, handleSubmit } = useForm();
 
   //Manejo de Login Firebase
   const [loginUser, setLoginUser] = useState();
@@ -33,6 +33,7 @@ const FormTicket = () => {
   };
 
   //Estado de User Firebase
+  // eslint-disable-next-line
   const [user, SetUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -40,11 +41,11 @@ const FormTicket = () => {
     updateLogin(currentUser);
   });
   //Envio de Información de Registro
-  const onSubmit = (data) => {
-    SetuserData(data);
-    createUser(userData);
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
+  //   SetuserData(data);
+  //   createUser(userData);
+  //   console.log(data);
+  // };
 
   //Login de Usuario
   const userLogin = async (e) => {
