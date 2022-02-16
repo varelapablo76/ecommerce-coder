@@ -2,17 +2,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import ItemListContainer from './components/Items/ItemListContainer'
+import ItemListContainer from './components/Items/ItemListContainer/ItemListContainer'
 import  NavbarStore  from './components/Navbar/Navbar.jsx';
-import ItemDetailContainer from './components/Items/ItemDetailContainer';
-import CartWidget from './components/Navbar/CartWidget'
+import ItemDetailContainer from './components/Items/ItemDetailContainer/ItemDetailContainer';
+import CartWidget from './components/Navbar/Cart/CartWidget'
 import PostShop from './components/Items/PostShop';
 
 import RegisterUser from './components/Users/RegisterUser'
 
 import { CartContextProvider } from './context/cartContext';
 import { UserShopProvider } from './context/userContext';
-import The404Site from './components/Items/The404Site';
+import The404Site from './components/Errors/The404Site';
 
 
 function App() {

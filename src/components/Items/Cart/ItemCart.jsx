@@ -1,4 +1,4 @@
-import { UsoCarritoContext } from "../../context/cartContext";
+import { UsoCarritoContext } from "../../../context/cartContext";
 
 import Button from "react-bootstrap/Button";
 import { FiTrash } from "react-icons/fi";

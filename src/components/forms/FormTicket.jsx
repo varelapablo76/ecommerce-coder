@@ -32,11 +32,9 @@ const FormTicket = () => {
             <Modal.Title className='text-center'>Inicio Incorrecto</Modal.Title>
           <Modal.Body className='text-center'>Su correo o clave no son correctas. <br/> Intente nuevamente </Modal.Body>
   
-          <Link to="/">
             <Button variant="info" onClick={handleClose}>
               Close
             </Button>
-          </Link>
           </div>
   
         </Modal>

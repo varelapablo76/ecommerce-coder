@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 import Spinner from "react-bootstrap/Spinner";
-import ItemDetail from "./ItemDetail";
-import The404 from "./The404";
+import ItemDetail from "./ItemDetail/ItemDetail";
+import The404 from "../../Errors/The404";
 
 const ItemDetailContainer = (detail) => {
   const [unit, setUnit] = useState({});

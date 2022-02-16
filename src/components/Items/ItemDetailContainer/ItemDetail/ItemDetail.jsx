@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-import ItemCount from "./ItemCount";
-import { UsoCarritoContext } from "../../context/cartContext";
+import ItemCount from "../../Cart/ItemCount";
+import { UsoCarritoContext } from "../../../../context/cartContext";
 
 const ItemDetail = (item) => {
   const { addCart } = UsoCarritoContext();

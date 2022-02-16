@@ -1,14 +1,14 @@
-import { UsoCarritoContext } from "../../context/cartContext";
-import "../../App.css";
+import { UsoCarritoContext } from "../../../context/cartContext";
+import "../../../App.css";
 import { addDoc, collection, getFirestore , query, where, documentId, writeBatch,getDocs } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
-import FormTicket from "../forms/FormTicket";
+import FormTicket from "../../forms/FormTicket";
 import Modal from "react-bootstrap/Modal";
 
 import { Link } from "react-router-dom";
-import { UseUserContext } from "../../context/userContext";
+import { UseUserContext } from "../../../context/userContext";
 import { useState } from "react";
-import ItemCart from "../Items/ItemCart";
+import ItemCart from "../../Items/Cart/ItemCart";
 
 const CartWidget = () => {
   const { listaCarrito, emptyCart, valorTotal } =

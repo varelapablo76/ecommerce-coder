@@ -1,5 +1,5 @@
 import {memo} from 'react'
-import Items from './Items'
+import Items from '../Items/Items'
 
 
 const ItemList = memo (

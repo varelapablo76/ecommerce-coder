@@ -1,48 +1,48 @@
-import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
+// import {useState, useEffect} from 'react';
+// import { useParams } from 'react-router-dom';
+// import { doc, getDoc, getFirestore } from 'firebase/firestore';
 
-import Spinner from 'react-bootstrap/Spinner'
+// import Spinner from 'react-bootstrap/Spinner'
 
-const PostShop = (idShop) => {
+// const PostShop = (idShop) => {
 
-    const [order, SetOrder] = useState({})
+//     const [order, SetOrder] = useState({})
 
-    const [loading, setLoading] = useState(true)
+//     const [loading, setLoading] = useState(true)
 
-    const {id} = useParams()
+//     const {id} = useParams()
 
-    console.log(id + 'id Order maybe')
+//     console.log(id + 'id Order maybe')
 
 
-    useEffect( () => {
+//     useEffect( () => {
 
-        const db = getFirestore()
+//         const db = getFirestore()
   
-        const queryIDShop = doc (db, 'orders', id)
-        getDoc(queryIDShop)
-        .then (res => SetOrder ({id: res.id, ...res.data()}))
-        .catch(err => err)
-        .finally( () => setLoading(false))
-        }, [id] )
+//         const queryIDShop = doc (db, 'orders', id)
+//         getDoc(queryIDShop)
+//         .then (res => SetOrder ({id: res.id, ...res.data()}))
+//         .catch(err => err)
+//         .finally( () => setLoading(false))
+//         }, [id] )
 
-return (
-<>
-{loading ? 
+// return (
+// <>
+// {loading ? 
 
-<Spinner animation="grow" /> 
-:
-<div>
-    <h1>Compra Finalizada</h1>
-    <p>Su comprobante es el {order.id} </p>
-</div>
+// <Spinner animation="grow" /> 
+// :
+// <div>
+//     <h1>Compra Finalizada</h1>
+//     <p>Su comprobante es el {order.id} </p>
+// </div>
 
-}
+// }
 
-</>
+// </>
 
-)
+// )
 
-}
+// }
 
-export default PostShop
+// export default PostShop
