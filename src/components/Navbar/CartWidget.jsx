@@ -39,21 +39,7 @@ const CartWidget = () => {
           </Link>
           </div>
         </Modal>
-{/* 
-        <Modal show={show} onHide={handleClose} centered>
-          <Modal.Header className='d-flex justify-content-center' closeButton>
-            <Modal.Title className='text-center'>Compra Finalizada</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className='text-center'>Su comprobante es el {orderID}</Modal.Body>
-          <Modal.Footer className='d-flex justify-content-center'>
 
-          <Link to="/">
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Link>
-          </Modal.Footer>
-        </Modal> */}
       </>
     );
   };
@@ -119,7 +105,7 @@ const CartWidget = () => {
         </div>
       ) : (
         <div className="container row d-flex justify-content-between align-items-center">
-          <div className='border col-7'>
+          <div className=' col-7'>
           <h3>Tu Lista de Compra</h3>
           {listaCarrito.map((prod) => (
             <ItemCart
@@ -135,7 +121,7 @@ const CartWidget = () => {
           </div>
 
           <div className="d-flex col-3 flex-column align-items-end container">
-            <h2 className="product__content_title">Total: {valorTotal()}</h2>
+            <h2 className="product__content_title">Total: $ {valorTotal()}</h2>
             <FormTicket />
 
             <div className='d-flex align-items-center'>

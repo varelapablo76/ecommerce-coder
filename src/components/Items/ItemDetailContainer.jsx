@@ -33,7 +33,7 @@ const ItemDetailContainer = (detail) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       {(() => {
         switch (loading) {
           case 2:

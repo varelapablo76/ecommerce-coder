@@ -30,7 +30,6 @@ const RegisterUser = () => {
 
     const [modalError, setModalError] = useState(false);
     const handleClose = () => setModalError(false);
-    const handleShow = () => setModalError(true);
 
     onAuthStateChanged(auth, (currentUser) => {
         SetUser(currentUser)
@@ -42,6 +41,7 @@ const RegisterUser = () => {
         e.preventDefault();
 
         try {
+            // eslint-disable-next-line
             const user = await createUserWithEmailAndPassword(
                 auth, 
                 registerUser, 
@@ -84,6 +84,7 @@ const ModalErrorUser = (user) => {
     const login = async (e) => {
         e.preventDefault();
         try {
+            // eslint-disable-next-line
         const user = await signInWithEmailAndPassword(
             auth, 
             loginUser, 
@@ -114,7 +115,6 @@ const ModalErrorUser = (user) => {
         const errorMessage = error.message;
         // eslint-disable-next-line
         const email = error.email;
-        // The AuthCredential type that was used.
         // eslint-disable-next-line
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
@@ -139,80 +139,6 @@ const ModalErrorUser = (user) => {
           });
     };
 
-//Formularios para Condicional
-    // function FormForUsers () {
-    //     <div className='d-flex justify-content-around flex-wrap'>
-    //     <Form className='col-5' onSubmit={register}>
-    //         <Form.Group>
-    //             <Form.Label>Registro de Usuario</Form.Label>
-    //             {/* <Form.Control type='name' placeholder="Nombre"
-    //             onChange={(e) => {
-    //                 setRegisterUser(e.target.value)
-    //             }} />
-    //             <Form.Control type='number' placeholder="DNI"
-    //             onChange={(e) => {
-    //                 setRegisterUser(e.target.value)
-    //             }} /> */}
-
-    //             <Form.Control type='email' placeholder="correo Electrónico"
-    //             onChange={(e) => {
-    //                 setRegisterUser(e.target.value)
-    //             }} />
-    //             <Form.Control type='password' placeholder="Contraseña" 
-    //             onChange={(e) => {
-    //                 setRegisterPassword(e.target.value)
-    //             }} /> 
-    //             <Button type='submit'>Registrarse</Button> <br />
-    //         </Form.Group> 
-    //     </Form>
-
-     
-    //     <Form className='col-5' onSubmit={login}> 
-    //         <Form.Group >
-    //             <Form.Label>Login</Form.Label>
-    //             <Form.Control type='email' placeholder="correo Electrónico" 
-    //             onChange={(e) => {
-    //                 setLoginUser(e.target.value)
-    //             }} />
-    //             <Form.Control type='password' placeholder="Contraseña"  
-    //             onChange={(e) => {
-    //                 setLoginPassword(e.target.value)
-    //             }} />
-    //             <Button type='submit'>Iniciar Sesión</Button>
-    //             <Button variant='danger' onClick={loginWithGoogle}>Login With Google</Button>
-
-    //         </Form.Group> 
-    //     </Form>
-    // </div>
-    // }
-
-    // const ProfileUser = () => {
-    //         <Form className='col-5' onSubmit={updateUserName}>
-    //         <Form.Group>
-    //             <h3>User Profile</h3>
-    //             <Form.Label>Nombre y Apellido</Form.Label>
-    //             <Form.Control type="text" placeholder={user.displayName} 
-    //              onChange={(e) => {
-    //                 setUpdNameUser(e.target.value)
-    //             }} />
-
-    //             <Form.Label>Numero Telefónico</Form.Label>
-    //             <Form.Control type="number" placeholder={user.phoneNumber} 
-    //              onChange={(e) => {
-    //                 setUpdPhoneNumber(e.target.value)
-    //             }} />
-
-    //             <Form.Label>Email</Form.Label>
-    //             <Form.Control type="email" placeholder={user.email} disabled/>
-
-    //             <Form.Label>ID Unico de Usuario</Form.Label>
-    //             <Form.Control type="text" placeholder={user.uid} disabled/>
-
-    //             <Button variant="secondary" type='submit'> Actualizar</Button>
-    //         </Form.Group>
-    //     </Form> 
-
-    // }
     
     return (
 
@@ -223,14 +149,6 @@ const ModalErrorUser = (user) => {
                 <Form.Group>
                     <h3>Registro de Usuario</h3>
                     <Form.Label>Correo Electrónico</Form.Label>
-                    {/* <Form.Control type='name' placeholder="Nombre"
-                    onChange={(e) => {
-                        setRegisterUser(e.target.value)
-                    }} />
-                    <Form.Control type='number' placeholder="DNI"
-                    onChange={(e) => {
-                        setRegisterUser(e.target.value)
-                    }} /> */}
                   
                     <Form.Control type='email' placeholder="correo Electrónico"
                     onChange={(e) => {

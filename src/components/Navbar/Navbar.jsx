@@ -172,7 +172,6 @@ const NavbarStore = () => {
           className="justify-content-between"
         >
           <Nav className="ms-auto align-items-center">
-           {/* <SidebarUser />  */}
            { user ? <SidebarUser /> :             
            <Nav.Link as={Link} to='/usuario' >
             Iniciar Sesión

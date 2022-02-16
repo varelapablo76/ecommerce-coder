@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { UseUserContext } from "../../context/userContext";
 import Form from "react-bootstrap/Form";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
+
 
 import {
   signInWithEmailAndPassword,
@@ -13,15 +13,40 @@ import {
 import { auth } from "../../firebase/dbConfig";
 import { Link } from "react-router-dom";
 
+
+
 const FormTicket = () => {
+
+  const [modalError, setModalError] = useState(false);
+  const handleClose = () => setModalError(false);
+
+  const ModalErrorUser = (user) => {
+
+  
+    return (
+      <>
+        <Modal show={modalError} onHide={handleClose}>
+      
+        <div className="containerModal m-3 d-flex flex-column align-items-center">
+  
+            <Modal.Title className='text-center'>Inicio Incorrecto</Modal.Title>
+          <Modal.Body className='text-center'>Su correo o clave no son correctas. <br/> Intente nuevamente </Modal.Body>
+  
+          <Link to="/">
+            <Button variant="info" onClick={handleClose}>
+              Close
+            </Button>
+          </Link>
+          </div>
+  
+        </Modal>
+      </>
+    );
+  }
+  
+
   //Contexto de Usuario
   const { userShop, updateLogin } = UseUserContext();
-
-  //Seteo de Usuario
-  // const [userData, SetuserData] = useState();
-
-  //Manejador de Registros
-  // const { register, handleSubmit } = useForm();
 
   //Manejo de Login Firebase
   const [loginUser, setLoginUser] = useState();
@@ -40,17 +65,12 @@ const FormTicket = () => {
     // SetUser(currentUser)
     updateLogin(currentUser);
   });
-  //Envio de Información de Registro
-  // const onSubmit = (data) => {
-  //   SetuserData(data);
-  //   createUser(userData);
-  //   console.log(data);
-  // };
 
   //Login de Usuario
   const userLogin = async (e) => {
     e.preventDefault();
     try {
+      // eslint-disable-next-line
       const user = await signInWithEmailAndPassword(
         auth,
         loginUser,
@@ -59,13 +79,15 @@ const FormTicket = () => {
 
     } catch (error) {
       console.log(error.message);
+      setModalError(true)
+
     }
   };
 
   return (
     <>
       {userShop ? (
-        <div className='d-flex flex-column border'>
+        <div className='d-flex flex-column '>
           <h5>Comprar como</h5>
           <p>{userShop.displayName} </p> <p>{userShop.email} </p>
 
@@ -99,6 +121,7 @@ const FormTicket = () => {
           <p>Registrarte</p>
           
           </Link>
+         <ModalErrorUser/>
         </>
       )}
     </>
