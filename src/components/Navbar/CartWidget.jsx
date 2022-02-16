@@ -26,17 +26,34 @@ const CartWidget = () => {
   const ModalFinishedOrder = () => {
     return (
       <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Compra Finalizada</Modal.Title>
+        <Modal show={show} onHide={handleClose} centered  >
+          <div className="containerModal m-3 d-flex flex-column align-items-center">
+
+            <Modal.Title className='text-center'>Compra Finalizada</Modal.Title>
+          <Modal.Body className='text-center'>Su comprobante es el {orderID}</Modal.Body>
+
+          <Link to="/">
+            <Button variant="info" onClick={handleClose}>
+              Close
+            </Button>
+          </Link>
+          </div>
+        </Modal>
+{/* 
+        <Modal show={show} onHide={handleClose} centered>
+          <Modal.Header className='d-flex justify-content-center' closeButton>
+            <Modal.Title className='text-center'>Compra Finalizada</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Su comprobante es el {orderID}</Modal.Body>
+          <Modal.Body className='text-center'>Su comprobante es el {orderID}</Modal.Body>
+          <Modal.Footer className='d-flex justify-content-center'>
+
           <Link to="/">
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Link>
-        </Modal>
+          </Modal.Footer>
+        </Modal> */}
       </>
     );
   };
@@ -97,7 +114,7 @@ const CartWidget = () => {
         <div className="d-flex flex-column align-items-center ">
           <h2>No Tienes Productos</h2>
           <Link to="/">
-            <Button variant="success"> Comprá Ahora </Button>
+            <Button variant="outline-success"> Comprá Ahora </Button>
           </Link>
         </div>
       ) : (
@@ -123,8 +140,8 @@ const CartWidget = () => {
 
             <div className='d-flex align-items-center'>
 
-              <Button className='m-2' onClick={emptyCart}>Vaciar Carrito</Button>
-              <Button onClick={realizarCompra} disabled={!userShop}>
+              <Button variant='outline-secondary' className='m-2' onClick={emptyCart}>Vaciar Carrito</Button>
+              <Button variant='success' onClick={realizarCompra} disabled={!userShop}>
                 Terminar Compra
               </Button>
             </div>

@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Button, Form, Modal } from "react-bootstrap"
+import { Link } from "react-router-dom"
+
 import { 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -26,6 +28,10 @@ const RegisterUser = () => {
 
     const [user, SetUser] = useState({})
 
+    const [modalError, setModalError] = useState(false);
+    const handleClose = () => setModalError(false);
+    const handleShow = () => setModalError(true);
+
     onAuthStateChanged(auth, (currentUser) => {
         SetUser(currentUser)
     })
@@ -46,6 +52,34 @@ const RegisterUser = () => {
         }
     }
 
+//modal error de Inicio Sesion
+const ModalErrorUser = (user) => {
+
+  
+    return (
+      <>
+        <Modal show={modalError} onHide={handleClose}>
+      
+        <div className="containerModal m-3 d-flex flex-column align-items-center">
+
+            <Modal.Title className='text-center'>Inicio Incorrecto</Modal.Title>
+          <Modal.Body className='text-center'>Su correo o clave no son correctas. <br/> Intente nuevamente </Modal.Body>
+
+          <Link to="/">
+            <Button variant="info" onClick={handleClose}>
+              Close
+            </Button>
+          </Link>
+          </div>
+
+        </Modal>
+      </>
+    );
+  }
+
+
+
+
 //Inicio de Sesión de usuario
     const login = async (e) => {
         e.preventDefault();
@@ -56,7 +90,7 @@ const RegisterUser = () => {
             loginPassword)
 
     } catch (error) {
-        console.log(error.message)
+        setModalError(true)
     }
     }
 
@@ -187,7 +221,8 @@ const RegisterUser = () => {
             <div className='d-flex justify-content-around flex-wrap'>
             <Form className='col-5' onSubmit={register}>
                 <Form.Group>
-                    <Form.Label>Registro de Usuario</Form.Label>
+                    <h3>Registro de Usuario</h3>
+                    <Form.Label>Correo Electrónico</Form.Label>
                     {/* <Form.Control type='name' placeholder="Nombre"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
@@ -196,42 +231,51 @@ const RegisterUser = () => {
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
                     }} /> */}
-    
+                  
                     <Form.Control type='email' placeholder="correo Electrónico"
                     onChange={(e) => {
                         setRegisterUser(e.target.value)
                     }} />
+
+                    <Form.Label>Contraseña</Form.Label>
+
                     <Form.Control type='password' placeholder="Contraseña" 
                     onChange={(e) => {
                         setRegisterPassword(e.target.value)
                     }} /> 
-                    <Button type='submit'>Registrarse</Button> <br />
+                    
+                    <Button className='mt-2' variant='dark' type='submit'>Registrarse</Button> <br />
                 </Form.Group> 
             </Form>
     
          
             <Form className='col-5' onSubmit={login}> 
                 <Form.Group >
-                    <Form.Label>Login</Form.Label>
+                <h3>Inicio de Sesión</h3>
+                    <Form.Label>Usuario</Form.Label>
+
                     <Form.Control type='email' placeholder="correo Electrónico" 
                     onChange={(e) => {
                         setLoginUser(e.target.value)
                     }} />
+                     <Form.Label>Contraseña</Form.Label>
+
                     <Form.Control type='password' placeholder="Contraseña"  
                     onChange={(e) => {
                         setLoginPassword(e.target.value)
                     }} />
-                    <Button type='submit'>Iniciar Sesión</Button>
-                    <Button variant='danger' onClick={loginWithGoogle}>Login With Google</Button>
+                    <Button className='m-1' type='submit'>Iniciar Sesión</Button>
+                    <Button className='m-1' variant='outline-danger' onClick={loginWithGoogle}>Login With Google</Button>
     
                 </Form.Group> 
             </Form>
+            <ModalErrorUser />
         </div>
          : 
      
-            <Form className='col-5' onSubmit={updateUserName}>
+            <Form className=' container d-flex align-items-center' onSubmit={updateUserName}>
             <Form.Group>
-                <h3>User Profile</h3>
+                <h3>Perfil de Usuario</h3>
                 <Form.Label>Nombre y Apellido</Form.Label>
                 <Form.Control type="text" placeholder={user.displayName} 
                  onChange={(e) => {
@@ -243,8 +287,9 @@ const RegisterUser = () => {
 
                 <Form.Label>ID Unico de Usuario</Form.Label>
                 <Form.Control type="text" placeholder={user.uid} disabled/>
-                <Button variant="secondary" type='submit'> Actualizar</Button>
-                <Button variant='danger' onClick={logOut}>Cerrar Sesión</Button>
+
+                <Button className='m-1' variant="secondary" type='submit'> Actualizar</Button>
+                <Button className='m-1' variant='danger' onClick={logOut}>Cerrar Sesión</Button>
             </Form.Group>
         </Form> 
 

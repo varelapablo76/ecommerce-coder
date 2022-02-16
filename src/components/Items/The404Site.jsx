@@ -12,7 +12,7 @@ const The404Site = () => {
                     <h1>Sección <br/>No encontrada</h1> <br />
                     <p>Continúa tu navegación aquí</p>
                     <Link to='/'>
-                        <Button>Volver al Inicio</Button>
+                        <Button variant='outline-sucess'>Volver al Inicio</Button>
                     </Link>
                 </div>
             </div>

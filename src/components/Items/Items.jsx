@@ -29,7 +29,7 @@ function Items ({card}) {
                 <Link to={`/productos/descripcion/${card.id}`}>
                     <Button
                         className="m-2"
-                        variant="success">
+                        variant="outline-success">
                             Detalle
                     </Button>
                 </Link>

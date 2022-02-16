@@ -92,7 +92,7 @@ const FormTicket = () => {
                   setLoginPassword(e.target.value);
                 }}
               />
-              <Button type="submit">Iniciar</Button>
+              <Button variant='outline-primary' type="submit">Iniciar</Button>
             </Form.Group>
           </Form>
           <Link to='/usuario'>

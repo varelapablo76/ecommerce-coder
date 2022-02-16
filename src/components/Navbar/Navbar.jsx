@@ -9,8 +9,6 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import { UsoCarritoContext } from "../../context/cartContext";
 
-
-
 import { ImCart, ImCross, ImUser } from "react-icons/im";
 import Badge from "react-bootstrap/Badge";
 
@@ -34,107 +32,108 @@ const NavbarStore = () => {
   
 
   const SidebarCart = () => {
-
     const [show, setShow] = useState(false);
-  
+
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
 
     return (
       <>
-          <ImCart onClick={handleOpen}  />
-     
+        <ImCart onClick={handleOpen} />
+
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Tu Compra</Offcanvas.Title>
+            <Offcanvas.Title>Tu Carrito</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-
-          {listaCarrito.map((prod) => (
-            <div
-              key={prod.id}
-              className="d-flex align-items-center justify-content-around py-3 "
-            >
-              <img
-                className="product__content_imgCart col-md-3"
-                src={prod.image}
-                alt=""
-              />
-              <div className=" ">
-                <div className="  ms-2">
-                  <div>
-                    <h2 className="product__content_title">{prod.title}</h2>
-                    <p className="product__content_title">
-                      {" "}
-                      Cantidad: {prod.cantidad}
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="product__content_price"> $ {prod.price}</h3>
-                  </div>
-                </div>
-
-                <div className="d-flex align-items-center">
-                  <Button
-                    onClick={() => deleItemCart(prod.id)}
-                    variant="outline-secondary"
-                    className="m-2"
-                  > 
-                    <ImCross />
-                  </Button>
-                  <Button onClick={emptyCart}>Vaciar Carrito</Button>
-
-                  <Link to='/carrito'>
-                    <Button onClick={handleClose}>Terminar Compra</Button>
-                  </Link>
-
+            { listaCarrito.length===0 ? 
+            <div className="d-flex flex-column align-items-center ">
+            <h1>Carrito Vacio</h1>
+            <Link to="/productos/remeras">
+            <Button variant="warning"> Comprá Ahora </Button>
+          </Link>
+            </div> :
+          <>
+            {listaCarrito.map((prod) => (
+              <div
+                key={prod.id}
+                className="d-flex flex-column align-items-center py-3 "
+              >
+                <div className="containerProduc d-flex flex-wrap mt-2">
+                    <img
+                      className="product__content_imgCart "
+                      src={prod.image}
+                      alt=""
+                    />
+                    <div>
+                          <h4 className="product__content_title">{prod.title} </h4>
+                          <h5 className="product__content_price"> $ {prod.price} </h5>
+                          <p className="product__content_title">
+                            Cantidad: {prod.cantidad}
+                          </p>
+                          <Button
+                      onClick={() => deleItemCart(prod.id)}
+                      variant="outline-danger"
+                      size='sm'
+                    >
+                      <ImCross />
+                    </Button>
+                    </div>
 
                 </div>
+
+
+                  <div className="containerButtons d-flex justify-content-between align-items-center">
+
+                    <Button size="sm" variant='outline-secondary' className='m-2' onClick={emptyCart}>Vaciar Carrito</Button>
+
+                    <Link to="/carrito">
+                      <Button size="sm" variant='warning' onClick={handleClose}>Terminar Compra</Button>
+                    </Link>
+                  </div>
+
               </div>
-            </div>
-          ))}
-
+            ))}
+          </>
+            }
           </Offcanvas.Body>
         </Offcanvas>
       </>
     );
-  }
+  };
 
   const SidebarUser = () => {
-
-    
-    
     const [show, setShow] = useState(false);
-    
+
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
-    
-    const logOut = async () => {        
-      await signOut(auth)
-      setShow(false)
-  }
+
+    const logOut = async () => {
+      await signOut(auth);
+      setShow(false);
+    };
     return (
       <>
-          <ImUser onClick={handleOpen}  />
-     
+        <ImUser onClick={handleOpen} />
+
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>{user.displayName}</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
 
-        <Link to="/usuario" >  
-          <Button>Actualizar Datos</Button>
-        </Link>
-        <Link to='/' >
-          <Button onClick={logOut}>Cerrar Sesión</Button>
-        </Link>
+            <Offcanvas.Title className='product__content_title'>Hola! {user.displayName}</Offcanvas.Title>
+            <Link to="/usuario">
+              <Button className='m-1' variant='outline-secondary'>Actualizar Datos</Button>
+            </Link> <br/>
+            <Link to="/">
+              <Button className='m-1' variant='outline-danger' onClick={logOut}>Cerrar Sesión</Button>
+            </Link>
 
           </Offcanvas.Body>
         </Offcanvas>
       </>
     );
-  }
+  };
 
   
   const valueItemCart = itemsTotal();

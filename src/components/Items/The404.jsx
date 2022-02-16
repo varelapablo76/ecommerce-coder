@@ -13,7 +13,7 @@ const The404 = () => {
                     <h1>Producto <br/>No disponible</h1> <br />
                     <p>Puedes seguir comprando aquí</p>
                     <Link to='/'>
-                        <Button>Continuar Compra</Button>
+                        <Button variant='outline-sucess'>Continuar Compra</Button>
                     </Link>
                 </div>
             </div>

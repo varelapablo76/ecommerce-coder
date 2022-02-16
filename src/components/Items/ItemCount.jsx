@@ -17,14 +17,15 @@ const ItemCount = ({ min, stock, onAdd }) => {
   return (
     <>
       <div className="d-flex justify-content-center align-items-center">
-        <button
+        <Button
+          variant='light'
           className="product__content_stock d-flex flex-wrap justify-content-around align-items-baseline border border-success rounded "
           value={cantidad}
         >
           <AiFillCaretDown onClick={downCantidad} />
           <p className="product__content_price">{cantidad}</p>
           <AiFillCaretUp onClick={upCantidad} />
-        </button>
+        </Button>
 
         <Button
           className="m-2"
