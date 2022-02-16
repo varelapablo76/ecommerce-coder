@@ -23,7 +23,7 @@ const FormTicket = () => {
           <div className="containerModal m-3 d-flex flex-column align-items-center">
             <Modal.Title className="text-center">Inicio Incorrecto</Modal.Title>
             <Modal.Body className="text-center">
-              Su correo o clave no son correctas. <br /> Intente nuevamente{" "}
+              Su correo o clave no son correctas. <br /> Intente nuevamente
             </Modal.Body>
 
             <Button variant="info" onClick={handleClose}>

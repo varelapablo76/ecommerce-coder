@@ -21,8 +21,7 @@ const ItemCart = (prod) => {
           <div>
             <h2 className="product__content_title">{prod.title}</h2>
             <p className="product__content_title">
-              {" "}
-              Cantidad: {prod.cantidad}{" "}
+              Cantidad: {prod.cantidad}
             </p>
           </div>
           <div>

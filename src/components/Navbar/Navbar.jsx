@@ -163,8 +163,14 @@ const NavbarStore = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav>
-          <NavDropdown title="Categorías" id="basic-nav-dropdown">
+
+        <Navbar.Collapse
+          id="basic-navbar-nav "
+          className="justify-content-between"
+        >
+           <Nav>
+
+        <NavDropdown title="Categorías" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} to="/productos/remeras">
               Remeras
             </NavDropdown.Item>
@@ -178,11 +184,7 @@ const NavbarStore = () => {
               Parches
             </NavDropdown.Item>
           </NavDropdown>
-        </Nav>
-        <Navbar.Collapse
-          id="basic-navbar-nav "
-          className="justify-content-between"
-        >
+          </Nav>
           <Nav className="ms-auto align-items-center">
             {user ? (
               <SidebarUser />
