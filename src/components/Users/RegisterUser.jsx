@@ -41,8 +41,6 @@ const RegisterUser = () => {
                 registerUser, 
                 registerPassword)
 
-            console.log(user)
-
         } catch (error) {
             console.log(error.message)
         }
@@ -56,8 +54,6 @@ const RegisterUser = () => {
             auth, 
             loginUser, 
             loginPassword)
-
-        console.log(user)
 
     } catch (error) {
         console.log(error.message)
@@ -99,7 +95,6 @@ const RegisterUser = () => {
 //Actualización de Usuario
     const updateUserName =  (e) => {
         e.preventDefault()
-        console.log(updNameUser)
         updateProfile(user, {
             displayName:updNameUser,
         })

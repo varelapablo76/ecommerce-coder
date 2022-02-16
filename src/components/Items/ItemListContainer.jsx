@@ -13,7 +13,6 @@ const ItemListContainer = ({listProduct}) => {
     const [loading, setLoading] = useState(true)
 
     const {categoryID} = useParams()
-    console.log(categoryID)
 
     useEffect(()=>{
 

@@ -30,7 +30,6 @@ const ItemDetail = (item) => {
           <h2 className="product__content_title">{item.title}</h2>
           <h3 className="product__content_price"> $ {item.price}</h3>
           <p>Stock ({item.stock}) unidades</p>
-          {console.log(item.stock)}
           <p className="product__content_detail fst-italic">
             {item.descripcion}
           </p>

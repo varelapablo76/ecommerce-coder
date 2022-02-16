@@ -1,19 +1,18 @@
-import {BsEmojiExpressionless} from 'react-icons/bs'
+import {BsFillCloudHailFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 
-
-const The404 = () => {
+const The404Site = () => {
     return (
         <div className='contenedor404 d-flex justify-content-center mt-5'>
             <div className=" d-flex col-7 justify-content-around align-items-center">
 
-            <BsEmojiExpressionless className='icon404'/>
+            <BsFillCloudHailFill className='icon404'/>
                 <div>
-                    <h1>Producto <br/>No disponible</h1> <br />
-                    <p>Puedes seguir comprando aquí</p>
+                    <h1>Sección <br/>No encontrada</h1> <br />
+                    <p>Continúa tu navegación aquí</p>
                     <Link to='/'>
-                        <Button>Continuar Compra</Button>
+                        <Button>Volver al Inicio</Button>
                     </Link>
                 </div>
             </div>
@@ -21,4 +20,6 @@ const The404 = () => {
     )
 }
 
-export default The404
+export default The404Site
+
+

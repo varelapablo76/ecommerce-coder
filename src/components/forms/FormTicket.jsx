@@ -57,7 +57,6 @@ const FormTicket = () => {
         loginPassword
       );
 
-      console.log(user);
     } catch (error) {
       console.log(error.message);
     }

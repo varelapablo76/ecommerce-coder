@@ -27,7 +27,6 @@ const ItemDetailContainer = (detail) => {
           .finally(() => setLoading(1));
       } else {
         setLoading(2);
-        console.log("dont exist");
       }
     };
     getProdFs();

@@ -98,3 +98,12 @@ font-size: 1.1rem;
 .buttonCart{
   width: 3rem;
 }
+
+.icon404{
+  width: 25rem;
+  height: 25rem;
+}
+.contenedor404{
+  width: 100vw;
+  height: 100vh;
+}

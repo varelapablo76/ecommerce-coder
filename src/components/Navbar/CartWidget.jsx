@@ -51,7 +51,6 @@ const CartWidget = () => {
     order.total = valorTotal();
 
     order.items = listaCarrito.map((itemCarrito) => {
-      console.log(itemCarrito);
       const cantidad = itemCarrito.cantidad;
       const id = itemCarrito.id;
       const price = itemCarrito.price * itemCarrito.cantidad;
@@ -59,8 +58,6 @@ const CartWidget = () => {
 
       return { id, title, price, cantidad };
     });
-
-    console.log(order);
 
     //make order in firestore
     const db = getFirestore();
@@ -70,8 +67,6 @@ const CartWidget = () => {
       .catch((err) => console.log(err))
       .finally(() => console.log("terminado"))
       .finally(() => SetShow(true));
-
-    console.log(JSON.stringify(orderID));
 
     //update Stock
     const collectionFirebase = collection(db, 'productos')

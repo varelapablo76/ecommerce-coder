@@ -120,7 +120,6 @@ const NavbarStore = () => {
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>{user.displayName}</Offcanvas.Title>
-            {console.log(user.displayName)}
           </Offcanvas.Header>
           <Offcanvas.Body>
 
