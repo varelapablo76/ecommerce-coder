@@ -9,6 +9,8 @@ Bold 700
   text-align: center;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200;0,400;0,700;1,300&display=swap');
+
 h1,h2,h3,a, p {
   font-family: 'Archivo', sans-serif;
 }
